@@ -1,3 +1,14 @@
 <template>
-    <img class="mx-auto" alt="Vue logo" src="../assets/boilerplate.png" />
+  <div>
+    Tutaj będzie tabelka
+
+    <Scheduler></Scheduler>
+  </div>
 </template>
+
+<script setup>
+import Scheduler from './Scheduler/Index.vue'
+</script>
+
+<style lang="scss" scoped>
+</style>

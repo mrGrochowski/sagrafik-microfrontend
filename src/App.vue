@@ -1,12 +1,11 @@
 <script setup>
 import { computed } from 'vue'
 import { useStore } from 'vuex'
-import GithubSVG from './assets/github.svg'
 
 const store = useStore()
 const user = ''
 const stack = computed(() => {
-    return store.state.stack
+  return store.state.stack
 })
 </script>
 
@@ -18,23 +17,23 @@ const stack = computed(() => {
     <router-view class="p-24"></router-view>
     <footer>
         <p class="text-gray-400 text-xs text-center">
-            <a class="flex items-center justify-center text-base font-medium text-black" href="https://github.com/richardevcom/vite-vuex-tailwind"><GithubSVG class="w-5 mr-1" />richardev</a>
+            <div class="flex items-center justify-center text-base font-medium text-black" >SA.ORG.PL</div>
         </p>
     </footer>
 </template>
 
 <style lang="scss">
 #app {
-    @apply h-screen bg-gray-50;
+  @apply h-screen bg-gray-50;
 }
 
 nav {
-    a.active {
-        &::after {
-            @apply block w-full bg-green-500;
-            content: '';
-            height: 1.5px;
-        }
+  a.active {
+    &::after {
+      @apply block w-full bg-green-500;
+      content: '';
+      height: 1.5px;
     }
+  }
 }
 </style>
