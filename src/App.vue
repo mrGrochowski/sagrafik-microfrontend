@@ -14,7 +14,7 @@ const stack = computed(() => {
         <router-link class="inline pr-5" to="/" active-class="active">Home</router-link>
         <router-link class="inline" to="/about" active-class="active">About</router-link>
     </nav>
-    <router-view class="p-24"></router-view>
+    <router-view class=" p-2"></router-view> 
     <footer>
         <p class="text-gray-400 text-xs text-center">
             <div class="flex items-center justify-center text-base font-medium text-black" >SA.ORG.PL</div>

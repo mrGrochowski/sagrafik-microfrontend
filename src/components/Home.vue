@@ -9,6 +9,3 @@
 <script setup>
 import Scheduler from './Scheduler/Index.vue'
 </script>
-
-<style lang="scss" scoped>
-</style>
