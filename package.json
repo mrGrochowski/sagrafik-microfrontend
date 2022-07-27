@@ -9,6 +9,7 @@
     "dependencies": {
         "vite": "^2.9.6",
         "vue": "^3.2.16",
+        "vue-inline-svg": "^2.1.0",
         "vue-router": "^4.0.11",
         "vuex": "^4.0.2"
     },
