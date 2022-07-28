@@ -6,7 +6,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useStore } from 'vuex'
-import Nav from './components/Nav.vue'
+import Nav from './components/Nav/Index.vue'
 
 const store = useStore()
 const user = ''
