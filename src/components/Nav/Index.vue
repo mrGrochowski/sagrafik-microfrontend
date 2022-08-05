@@ -6,11 +6,11 @@
     <div id="tabs" class="flex justify-between">
       <router-link to="/" class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1">
         <IconHomeSvg class="inline-block mb-1" />
-        <span class="tab tab-home block text-xs">Home</span>
+        <span class="tab tab-home block text-xs">Meetingi</span>
       </router-link>
       <router-link to="/about" class="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1">
         <IconCategorySvg />
-        <span class="tab tab-kategori block text-xs">Category</span>
+        <span class="tab tab-kategori block text-xs">Ustawienia</span>
       </router-link>
     </div>
   </section>
