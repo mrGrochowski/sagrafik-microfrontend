@@ -1,9 +1,14 @@
 <template>
   <div>
-    Tutaj będzie tabelka
-    {{ headers }}
+    <!-- Tutaj będzie tabelka
+    {{ headers }} -->
     <div v-for="card in cards" :key="card['Sygnatura czasowa']" class="bg-white shadow-xl shadow-gray-100 w-full max-w-4xl px-5 py-4 rounded-xl mb-10">
-      {{ card.Miasto }}
+      <div v-for="(elem, index) in card" :key="elem">
+        <span> {{ index }}: </span>
+        <strong>{{ elem }}</strong>
+      </div>
+      <!--       Miasto : {{ card.Miasto }}
+ -->
     </div>
     <Scheduler></Scheduler>
   </div>
