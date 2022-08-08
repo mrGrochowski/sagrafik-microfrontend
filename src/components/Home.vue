@@ -1,18 +1,28 @@
 <template>
   <div>
     Tutaj będzie tabelka
-    {{ jsonFrom }}
+    {{ headers }}
+    <div v-for="card in cards" :key="card['Sygnatura czasowa']" class="bg-white shadow-xl shadow-gray-100 w-full max-w-4xl px-5 py-4 rounded-xl mb-10">
+      {{ card.Miasto }}
+    </div>
     <Scheduler></Scheduler>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { get } from '../composables/fetchMeetings.js'
+import { sync, Storage, getRows, getHeaders, getPreparedCards } from '../composables/fetchMeetings.js'
 import Scheduler from './Scheduler/Index.vue'
 
 const jsonFrom = ref([])
+const rows = ref([])
+const headers = ref([])
+const cards = ref([])
+
 onMounted(async () => {
-  jsonFrom.value = await get()
+  await sync()
+  rows.value = getRows()
+  headers.value = getHeaders()
+  cards.value = getPreparedCards()
 })
 </script>
