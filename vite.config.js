@@ -15,5 +15,5 @@ export default defineConfig({
       usePolling: true,
     },
   },
-  base: '/sagrafik-microfrontend',
+  base: '/sagrafik-microfrontend/dist',
 })
