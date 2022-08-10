@@ -30,7 +30,5 @@ export const getPreparedCards = () => {
     preparedList.push(obj)
   })
 
-  console.log(preparedList)
-
   return preparedList
 }
