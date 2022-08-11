@@ -17,7 +17,7 @@ const stack = computed(() => {
 
 <style lang="scss">
 #app {
-  @apply h-screen bg-gray-50;
+  @apply min-h-screen bg-gray-50;
 }
 
 nav {
