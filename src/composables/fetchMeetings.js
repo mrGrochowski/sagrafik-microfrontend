@@ -3,7 +3,7 @@ const { VITE_DATA_SOURCE, VITE_APP_KEY } = import.meta.env
 export let Storage = {}
 
 export const sync = async () => {
-  const res = await fetch(`${VITE_DATA_SOURCE}/values/A:ZZ?key=${VITE_APP_KEY}`)
+  const res = await fetch(`${VITE_DATA_SOURCE}/values/protected!A:ZZ?key=${VITE_APP_KEY}`)
   const fetchJson = await res.json()
   Storage = fetchJson
   return fetchJson
