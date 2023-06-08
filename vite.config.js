@@ -15,6 +15,7 @@ export default defineConfig({
       usePolling: true,
     },
   },
-  //  base: '/sagrafik-microfrontend/',
-  base: '/',
+  publicPath: '/sagrafik-microfrontend/',
+  base: '/sagrafik-microfrontend/',
+  //base: '/',
 })
