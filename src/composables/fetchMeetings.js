@@ -1,4 +1,5 @@
 const { VITE_DATA_SOURCE, VITE_APP_KEY } = import.meta.env
+import { decrypt } from './decryptContent.js';
 
 export let Storage = {}
 
@@ -12,6 +13,9 @@ export const sync = async () => {
 export const getRows = () => {
   return Storage.values.filter((element, index) => {
     return index > 0
+  }).map(e => {
+    //console.log("🚀 ~ file: fetchMeetings.js:17 ~ returnStorage.values.filter ~ e:", e)
+    return e.map(f=>decrypt(f))
   })
 }
 

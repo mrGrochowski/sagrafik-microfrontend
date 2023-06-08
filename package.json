@@ -10,6 +10,7 @@
         "deploy": "gh-pages -d dist"
     },
     "dependencies": {
+        "crypto-js": "^4.1.1",
         "vite": "^2.9.6",
         "vue": "^3.2.16",
         "vue-inline-svg": "^3.1.0",

@@ -381,6 +381,11 @@
     "shebang-command" "^2.0.0"
     "which" "^2.0.1"
 
+"crypto-js@^4.1.1":
+  "integrity" "sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw=="
+  "resolved" "https://registry.npmjs.org/crypto-js/-/crypto-js-4.1.1.tgz"
+  "version" "4.1.1"
+
 "css-select@^4.1.3":
   "integrity" "sha512-wPpOYtnsVontu2mODhA19JrqWxNsfdatRKd64kmpRbQgh1KtItko5sTnEpPdpSaJszTOhEMlF/RPz28qj4HqhQ=="
   "resolved" "https://registry.npmjs.org/css-select/-/css-select-4.3.0.tgz"
@@ -1245,7 +1250,7 @@
   "resolved" "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz"
   "version" "4.2.0"
 
-"postcss@^8.0.0", "postcss@^8.1.0", "postcss@^8.1.10", "postcss@^8.2.14", "postcss@^8.3.3", "postcss@^8.4.12", "postcss@^8.4.14", "postcss@>=8.0.9":
+"postcss@^8.0.0", "postcss@^8.1.0", "postcss@^8.1.10", "postcss@^8.2.14", "postcss@^8.3.3", "postcss@^8.4.13", "postcss@^8.4.14", "postcss@>=8.0.9":
   "integrity" "sha512-ipHE1XBvKzm5xI7hiHCZJCSugxvsdq2mPnsq5+UF+VHCjiBvtDrlxJfMBToWaP9D5XlgNmcFGqoHmUn0EYEaRQ=="
   "resolved" "https://registry.npmjs.org/postcss/-/postcss-8.4.16.tgz"
   "version" "8.4.16"
@@ -1324,7 +1329,7 @@
   dependencies:
     "glob" "^7.1.3"
 
-"rollup@^2.59.0":
+"rollup@>=2.59.0 <2.78.0":
   "integrity" "sha512-EitogNZnfku65I1DD5Mxe8JYRUCy0hkK5X84IlDtUs+O6JRMpRciXTzyCUuX11b5L5pvjH+OmFXiQ3XjabcXgg=="
   "resolved" "https://registry.npmjs.org/rollup/-/rollup-2.70.2.tgz"
   "version" "2.70.2"
@@ -1533,14 +1538,14 @@
     "svgo" "^2.7.0"
 
 "vite@^2.5.10", "vite@^2.9.6":
-  "integrity" "sha512-3IffdrByHW95Yjv0a13TQOQfJs7L5dVlSPuTt432XLbRMriWbThqJN2k/IS6kXn5WY4xBLhK9XoaWay1B8VzUw=="
-  "resolved" "https://registry.npmjs.org/vite/-/vite-2.9.6.tgz"
-  "version" "2.9.6"
+  "integrity" "sha512-X+6q8KPyeuBvTQV8AVSnKDvXoBMnTx8zxh54sOwmmuOdxkjMmEJXH2UEchA+vTMps1xw9vL64uwJOWryULg7nA=="
+  "resolved" "https://registry.npmjs.org/vite/-/vite-2.9.16.tgz"
+  "version" "2.9.16"
   dependencies:
     "esbuild" "^0.14.27"
-    "postcss" "^8.4.12"
+    "postcss" "^8.4.13"
     "resolve" "^1.22.0"
-    "rollup" "^2.59.0"
+    "rollup" ">=2.59.0 <2.78.0"
   optionalDependencies:
     "fsevents" "~2.3.2"
 
