@@ -5,13 +5,11 @@
     <div v-for="card in cards" :key="card['Sygnatura czasowa']" class="bg-white shadow-xl shadow-gray-100 w-full max-w-4xl px-5 py-4 rounded-xl mb-10 break-all">
       <div v-for="(elem, label) in card" :key="elem">
         <span> {{ label }}: </span>
-        <strong v-if="elem.match('http')"
-          ><a :href="elem">{{ elem }}</a></strong
-        >
+        <strong v-if="elem.match('http')">
+          <a :href="elem">{{ elem }}</a>
+        </strong>
         <strong v-else>{{ elem }}</strong>
       </div>
-      <!--       Miasto : {{ card.Miasto }}
- -->
     </div>
     <Scheduler></Scheduler>
   </div>
