@@ -1,5 +1,6 @@
 const { VITE_DATA_SOURCE, VITE_APP_KEY } = import.meta.env
 import { decrypt } from './decryptContent.js';
+import cloneDeep from 'lodash/cloneDeep.js';
 
 export let Storage = {}
 
@@ -10,30 +11,30 @@ export const sync = async () => {
   return fetchJson
 }
 
-
-
-
 export const prepareRows = () => {
   
   const decryptedResponse = Storage.values.filter((element, index) => {
     //ommit heading section of table
     return index > 0
-  }).map(e => e.map(f => decrypt(f)))
+  }).map(row => row.map(col => decrypt(col)))
   
+  const cloneDecryptedResponse = cloneDeep(decryptedResponse);
   
-  const regex = /\d{4}\-\d{2}\-\d{2}T/g;
-  console.log("🚀 ~ file: fetchMeetings.js:35 ~ prepareRows ~ decryptedResponse:", decryptedResponse)
-  const responseWithTimestampsAsHHMM = decryptedResponse 
-    .map(e =>
-      e.map((f , index) => {
-        //get just hour format        
-        if (regex.test(f) && index>0) {
-            const res =  f.match(/\d\d:\d\d/)["0"];
-            console.log("🚀 ~ file: fetchMeetings.js:31 ~ e.map ~ regex.test(f):", regex.test(f))
-            console.log("🚀 ~ file: fetchMeetings.js:33 ~ e.map ~ res:", typeof res);
+  const regex = /\d{4}\-\d{2}\-\d{2}T/
+    //const regex = new RegExp('\\d{4}\\-\\d{2}\\-\\d{2}T','i');
+  const responseWithTimestampsAsHHMM = cloneDecryptedResponse 
+    .map(row =>
+      cloneDeep(row).map((col) => {
+        //get just hour format
+        const condition = regex.test(col);
+        console.log(`${col} ${condition}`);
+
+        if (condition) {
+            //regex.test(col);
+            const res =  col.match(/\d\d:\d\d/)["0"];
             return res
         }
-        return f
+        return col
       })
   )
   
