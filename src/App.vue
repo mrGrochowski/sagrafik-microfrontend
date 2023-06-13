@@ -25,7 +25,8 @@ const stack = computed(() => {
 }
 
 #app {
-  @apply min-h-screen bg-gray-50;
+  //@apply min-h-screen bg-gray-50;
+  @apply min-h-screen bg-zinc-800;
 }
 
 /* nav {
