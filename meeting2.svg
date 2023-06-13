@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   viewBox="0 0 52.404 38.887"
+   id="svg52"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs56" />
+  <g
+     transform="translate(-6.6349,-23.8394)"
+     fill="#d8d8d8"
+     stroke="currentColor"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     stroke-width="2.3812"
+     id="g6">
+    <path
+       d="m 46.316,35.018 c 1.3179,0.10019 2.614,1.3149 2.614,1.3149 0,0 -0.77334,7.9478 -1.026,10.995 l -4.3903,-7.5435 -0.10041,-3.7732 c -0.0217,-0.81603 1.677,-1.0297 2.9027,-0.99322 z"
+       style="mix-blend-mode:normal;paint-order:fill markers stroke"
+       id="path2" />
+    <path
+       d="m 46.325,30.073 c 2.748,0.0102 3.1531,4.2698 0.2558,4.6896 -3.1851,0.46156 -3.8238,-4.3675 -0.52916,-4.6772 0.0935,-0.009 0.18472,-0.0127 0.27336,-0.0124 z"
+       style="mix-blend-mode:normal;paint-order:fill markers stroke"
+       id="path4" />
+  </g>
+  <g
+     transform="translate(-4.774,-20.48977)"
+     fill="#d8d8d8"
+     stroke="currentColor"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     stroke-width="2.3812"
+     id="g12">
+    <path
+       d="m 53.373,45.874 c 1.3179,0.10019 2.614,1.3149 2.614,1.3149 0,0 -0.77334,7.9478 -1.026,10.995 l -4.3903,-7.5435 -0.10041,-3.7732 c -0.0217,-0.81603 1.677,-1.0297 2.9027,-0.99322 z"
+       style="mix-blend-mode:normal;paint-order:fill markers stroke"
+       id="path8" />
+    <path
+       d="m 53.382,40.929 c 2.748,0.0102 3.1531,4.2698 0.2558,4.6896 -3.1851,0.46156 -3.8238,-4.3675 -0.52916,-4.6772 0.0935,-0.009 0.18472,-0.0127 0.27336,-0.0124 z"
+       style="mix-blend-mode:normal;paint-order:fill markers stroke"
+       id="path10" />
+  </g>
+  <path
+     d="M 18.7244,19.498 8.5834,36.953 h 34.396 L 32.5734,19.386 Z"
+     fill="#d8d8d8"
+     stroke="currentColor"
+     stroke-width="2.3812"
+     style="mix-blend-mode:normal;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke;fill:#d8d8d8;fill-opacity:0.20132741"
+     id="path14" />
+  <path
+     d="m 24.8214,19.448 -6.0963,0.04961 -10.141,17.455 h 25.496 c -5.5334,-3.7208 -12.176,-9.0384 -10.96,-12.461 0.66621,-1.8744 1.2294,-3.5387 1.7012,-5.0431 z"
+     fill="#d3d3d3"
+     stroke="#d3d3d3"
+     stroke-width="0.453"
+     style="mix-blend-mode:soft-light;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers;fill:#d3d3d3;fill-opacity:0.36061946;stroke:none"
+     id="path16" />
+  <g
+     transform="translate(-10.822,-20.861955)"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="g28">
+    <path
+       d="m 14.627,46.249 c -1.3179,0.10019 -2.614,1.3149 -2.614,1.3149 0,0 0.77334,7.9478 1.026,10.995 l 4.3903,-7.5435 0.10041,-3.7732 c 0.0217,-0.81603 -1.677,-1.0297 -2.9027,-0.99321 z"
+       fill="#d8d8d8"
+       stroke="currentColor"
+       stroke-width="2.3812"
+       style="mix-blend-mode:normal;paint-order:fill markers stroke"
+       id="path20" />
+    <path
+       d="m 14.618,41.305 c -2.748,0.0102 -3.1531,4.2698 -0.2558,4.6896 3.1851,0.46156 3.8238,-4.3675 0.52916,-4.6772 -0.0935,-0.009 -0.18472,-0.0127 -0.27336,-0.0124 z"
+       fill="#d8d8d8"
+       stroke="currentColor"
+       stroke-width="2.3812"
+       style="mix-blend-mode:normal;paint-order:fill markers stroke"
+       id="path22" />
+    <path
+       d="m 15.104,46.248 c -0.16371,-0.0039 -0.32428,-0.0035 -0.47749,0.0011 -1.3179,0.10019 -2.6143,1.3146 -2.6143,1.3146 0,0 0.77363,7.948 1.0263,10.995 l 4.3899,-7.5432 0.10077,-3.7734 c 0.019,-0.71403 -1.2792,-0.96666 -2.4252,-0.99425 z"
+       fill="#d3d3d3"
+       stroke="#d3d3d3"
+       stroke-width="0.453"
+       style="mix-blend-mode:soft-light;paint-order:stroke fill markers"
+       id="path24" />
+    <path
+       d="m 14.618,41.305 c -2.748,0.01019 -3.1531,4.2698 -0.2558,4.6896 3.1851,0.46156 3.8238,-4.3675 0.52917,-4.6772 -0.0935,-0.009 -0.18473,-0.0127 -0.27337,-0.01241 z"
+       fill="#d3d3d3"
+       stroke="#d3d3d3"
+       stroke-width="0.453"
+       style="mix-blend-mode:soft-light;paint-order:stroke fill markers"
+       id="path26" />
+  </g>
+  <g
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="g38"
+     transform="translate(-8.0306,-20.955)">
+    <path
+       d="m 20.11,31.873 c -1.3179,0.10019 -2.614,1.3149 -2.614,1.3149 0,0 0.77334,7.9478 1.026,10.995 l 4.3903,-7.5435 0.10041,-3.7732 c 0.0217,-0.81603 -1.677,-1.0297 -2.9027,-0.99322 z"
+       fill="#d8d8d8"
+       stroke="currentColor"
+       stroke-width="2.3812"
+       style="mix-blend-mode:normal;paint-order:fill markers stroke"
+       id="path30" />
+    <path
+       d="m 20.101,26.929 c -2.748,0.0102 -3.1531,4.2698 -0.2558,4.6896 3.1851,0.46156 3.8238,-4.3675 0.52916,-4.6772 -0.0935,-0.009 -0.18472,-0.0127 -0.27336,-0.0124 z"
+       fill="#d8d8d8"
+       stroke="currentColor"
+       stroke-width="2.3812"
+       style="mix-blend-mode:normal;paint-order:fill markers stroke"
+       id="path32" />
+    <path
+       d="m 20.588,31.872 c -0.16371,-0.0039 -0.32428,-0.003 -0.47749,0.0016 -1.3179,0.10019 -2.6138,1.3147 -2.6138,1.3147 0,0 0.77312,7.948 1.0258,10.995 l 4.3904,-7.5437 0.10025,-3.7729 c 0.019,-0.71403 -1.2792,-0.96717 -2.4252,-0.99477 z"
+       fill="#d3d3d3"
+       stroke="#d3d3d3"
+       stroke-width="0.453"
+       style="mix-blend-mode:soft-light;paint-order:stroke fill markers"
+       id="path34" />
+    <path
+       d="m 20.101,26.929 c -2.748,0.01021 -3.1531,4.2698 -0.2558,4.6896 3.1851,0.46156 3.8238,-4.3675 0.52917,-4.6772 -0.0935,-0.009 -0.18473,-0.0127 -0.27337,-0.01241 z"
+       fill="#d3d3d3"
+       stroke="#d3d3d3"
+       stroke-width="0.453"
+       style="mix-blend-mode:soft-light;paint-order:stroke fill markers"
+       id="path36" />
+  </g>
+  <path
+     d="m 23.07931,6.6811 c -2.1089,1.1971 -2.2412,4.3589 -3.1055,7.4273 h 11.113 c 0,0 -0.95352,-5.4634 -2.264,-7.026 -1.5556,-1.2906 -5.743,-0.4013 -5.743,-0.4013 z"
+     fill="#d8d8d8"
+     stroke="currentColor"
+     stroke-width="2.3812"
+     style="mix-blend-mode:normal;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke;opacity:1;stroke:#000000;stroke-opacity:1;fill:#d8d8d8;fill-opacity:0.22787611"
+     id="path40" />
+  <path
+     d="m 25.50631,1.1921 c -0.16236,0.005 -0.33092,0.0279 -0.5054,0.0708 -3.0861,0.75789 -1.8612,5.4094 1.3178,4.5289 2.6219,-0.72613 1.623,-4.674 -0.81235,-4.5997 z"
+     fill="#d8d8d8"
+     stroke="currentColor"
+     stroke-width="2.3812"
+     style="mix-blend-mode:normal;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke"
+     id="path42" />
+  <path
+     d="m 25.84031,6.3831 c -1.4362,0.01651 -2.7611,0.29817 -2.7611,0.29817 -2.1089,1.1971 -2.2414,4.359 -3.1058,7.4275 h 4.9857 c 0.97689,-3.3078 1.4331,-5.7438 1.3968,-7.7189 -0.17215,-0.0065 -0.34469,-0.0087 -0.51573,-0.0067 z"
+     fill="#d3d3d3"
+     stroke="#d3d3d3"
+     stroke-width="0.453"
+     style="mix-blend-mode:soft-light;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers;opacity:1;fill:#d3d3d3;fill-opacity:0.28097346;stroke:none"
+     id="path44" />
+  <path
+     d="m 24.76531,1.3311 c -2.7833,0.93235 -1.5413,5.3173 1.5534,4.4602 0.0034,-0.0011 0.0064,-0.0021 0.0098,-0.0031 -0.12544,-1.7204 -0.65643,-3.0997 -1.5632,-4.4571 z"
+     fill="#d3d3d3"
+     stroke="#d3d3d3"
+     stroke-width="0.453"
+     style="mix-blend-mode:soft-light;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+     id="path46" />
+</svg>
