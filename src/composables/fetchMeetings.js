@@ -21,7 +21,6 @@ export const prepareRows = () => {
   const cloneDecryptedResponse = cloneDeep(decryptedResponse);
   
   const regex = /\d{4}\-\d{2}\-\d{2}T/
-    //const regex = new RegExp('\\d{4}\\-\\d{2}\\-\\d{2}T','i');
   const responseWithTimestampsAsHHMM = cloneDecryptedResponse 
     .map(row =>
       cloneDeep(row).map((col) => {

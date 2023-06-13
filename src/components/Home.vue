@@ -11,7 +11,10 @@
         <strong v-else>{{ elem }}</strong>
       </div>
     </div>
-    <Scheduler></Scheduler>
+    
+    
+    <!-- 
+    <Scheduler></Scheduler> -->
   </div>
 </template>
 
