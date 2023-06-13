@@ -5,7 +5,7 @@ import cloneDeep from 'lodash/cloneDeep.js'
 export let Storage = {}
 
 export const sync = async () => {
-  const res = await fetch(`${VITE_DATA_SOURCE}/values/${VITE_DATA_SHEET}!A:ZZ?key=${VITE_APP_KEY}`,{cache: 'force-cache',})
+  const res = await fetch(`${VITE_DATA_SOURCE}/values/${VITE_DATA_SHEET}!A:ZZ?key=${VITE_APP_KEY}`)
   const fetchJson = await res.json()
   Storage = fetchJson
   return fetchJson
@@ -17,8 +17,8 @@ const decryptResponse = () =>
       return index > 0
     })
     .map((row) => row.map((col) => decrypt(col)))
-
-const changeISODateToHoursInResponse = (decryptedResponse) => {
+    
+    const changeISODateToHoursInResponse = (decryptedResponse) => {
     const regex = /\d{4}\-\d{2}\-\d{2}T/
     const responseWithTimestampsAsHHMM = decryptedResponse.map((row) =>
       cloneDeep(row).map((col) => {
@@ -30,9 +30,9 @@ const changeISODateToHoursInResponse = (decryptedResponse) => {
         }
         return col
       })
-    )
-
-    return responseWithTimestampsAsHHMM
+      )
+      
+      return responseWithTimestampsAsHHMM
   }
 
 export const prepareRows = () => {
