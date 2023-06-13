@@ -17,8 +17,8 @@ const decryptResponse = () =>
       return index > 0
     })
     .map((row) => row.map((col) => decrypt(col)))
-
-const changeISODateToHoursInResponse = (decryptedResponse) => {
+    
+    const changeISODateToHoursInResponse = (decryptedResponse) => {
     const regex = /\d{4}\-\d{2}\-\d{2}T/
     const responseWithTimestampsAsHHMM = decryptedResponse.map((row) =>
       cloneDeep(row).map((col) => {
@@ -30,9 +30,9 @@ const changeISODateToHoursInResponse = (decryptedResponse) => {
         }
         return col
       })
-    )
-
-    return responseWithTimestampsAsHHMM
+      )
+      
+      return responseWithTimestampsAsHHMM
   }
 
 export const prepareRows = () => {
