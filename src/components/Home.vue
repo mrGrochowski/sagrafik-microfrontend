@@ -7,6 +7,7 @@
     <h4>Wszystkie Meetingi w Polsce na CITO 🔥</h4>
     </div>
     <div v-for="card in cards" :key="card['Sygnatura czasowa']" class="card">
+      <img class="card-image" src="https://maps.geoapify.com/v1/staticmap?style=dark-matter-yellow-roads&width=600&height=400&center=lonlat:19.416073,51.854635&zoom=5.4&pitch=45&marker=lonlat:19.416073,51.854635;type:awesome;color:%23e01401&apiKey=1b48259b810e48ddb151889f9ea58db0"/>
       <div v-for="(elem, label) in card" :key="elem">
         <span> {{ label }}: </span>
         <strong v-if="elem.match('http')">
@@ -24,7 +25,16 @@
 
 <style lang="scss" scoped>
   .card {
-    @apply bg-gray-100 shadow-xl shadow-gray-800 w-full max-w-4xl px-5 py-4 rounded-xl mb-10 break-all
+    @apply bg-gray-100 shadow-xl shadow-gray-800 w-full max-w-4xl px-5 py-4 rounded-xl mb-10 break-all overflow-auto
+  }
+  .card-image {
+    margin: -1.25rem;
+    //width:100%;
+    width: calc(2 * 1.25rem + 100%) !important;
+    max-width: 100vw;
+    // max-height:25%;
+    height:25vh;
+    object-fit: cover;
   }
 </style>
 <script setup>
