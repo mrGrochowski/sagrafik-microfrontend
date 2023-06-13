@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center pb-6">
     <!-- Tutaj będzie tabelka
     {{ headers }} -->
     <div class="card">

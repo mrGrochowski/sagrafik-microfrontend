@@ -5,7 +5,7 @@ import cloneDeep from 'lodash/cloneDeep.js'
 export let Storage = {}
 
 export const sync = async () => {
-  const res = await fetch(`${VITE_DATA_SOURCE}/values/${VITE_DATA_SHEET}!A:ZZ?key=${VITE_APP_KEY}`)
+  const res = await fetch(`${VITE_DATA_SOURCE}/values/${VITE_DATA_SHEET}!A:ZZ?key=${VITE_APP_KEY}`,{cache: 'force-cache',})
   const fetchJson = await res.json()
   Storage = fetchJson
   return fetchJson
