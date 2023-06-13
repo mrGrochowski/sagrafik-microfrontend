@@ -123,20 +123,23 @@
        style="mix-blend-mode:soft-light;paint-order:stroke fill markers"
        id="path36" />
   </g>
-  <path
-     d="m 23.07931,6.6811 c -2.1089,1.1971 -2.2412,4.3589 -3.1055,7.4273 h 11.113 c 0,0 -0.95352,-5.4634 -2.264,-7.026 -1.5556,-1.2906 -5.743,-0.4013 -5.743,-0.4013 z"
-     fill="#d8d8d8"
-     stroke="currentColor"
-     stroke-width="2.3812"
-     style="mix-blend-mode:normal;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke;opacity:1;stroke:#000000;stroke-opacity:1;fill:#d8d8d8;fill-opacity:0.22787611"
-     id="path40" />
-  <path
-     d="m 25.50631,1.1921 c -0.16236,0.005 -0.33092,0.0279 -0.5054,0.0708 -3.0861,0.75789 -1.8612,5.4094 1.3178,4.5289 2.6219,-0.72613 1.623,-4.674 -0.81235,-4.5997 z"
-     fill="#d8d8d8"
-     stroke="currentColor"
-     stroke-width="2.3812"
-     style="mix-blend-mode:normal;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke"
-     id="path42" />
+  <g
+     id="g2999">
+    <path
+       d="m 23.07931,6.6811 c -2.1089,1.1971 -2.2412,4.3589 -3.1055,7.4273 h 11.113 c 0,0 -0.95352,-5.4634 -2.264,-7.026 -1.5556,-1.2906 -5.743,-0.4013 -5.743,-0.4013 z"
+       fill="#d8d8d8"
+       stroke="currentColor"
+       stroke-width="2.3812"
+       style="mix-blend-mode:normal;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke;opacity:1;stroke:#000000;stroke-opacity:1;fill:#d8d8d8;fill-opacity:0.11283186"
+       id="path40" />
+    <path
+       d="m 25.50631,1.1921 c -0.16236,0.005 -0.33092,0.0279 -0.5054,0.0708 -3.0861,0.75789 -1.8612,5.4094 1.3178,4.5289 2.6219,-0.72613 1.623,-4.674 -0.81235,-4.5997 z"
+       fill="#d8d8d8"
+       stroke="currentColor"
+       stroke-width="2.3812"
+       style="mix-blend-mode:normal;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke"
+       id="path42" />
+  </g>
   <path
      d="m 25.84031,6.3831 c -1.4362,0.01651 -2.7611,0.29817 -2.7611,0.29817 -2.1089,1.1971 -2.2414,4.359 -3.1058,7.4275 h 4.9857 c 0.97689,-3.3078 1.4331,-5.7438 1.3968,-7.7189 -0.17215,-0.0065 -0.34469,-0.0087 -0.51573,-0.0067 z"
      fill="#d3d3d3"
