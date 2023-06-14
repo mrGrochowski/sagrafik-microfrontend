@@ -1,7 +1,6 @@
 <template>
   <div :class="{ 'devMode' : VITE_DEVMODE == 1}">
-  <h1>{{VITE_DEVMODE == 1}}</h1>
-    <router-view class="p-2"></router-view>
+    <Suspense><router-view class="p-2"></router-view></Suspense>
     <Nav />
   </div>
 </template>
@@ -17,6 +16,7 @@ const user = ''
 const stack = computed(() => {
   return store.state.stack
 })
+
 </script>
 
 <style lang="scss">

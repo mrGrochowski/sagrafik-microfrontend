@@ -1,6 +1,7 @@
 const { VITE_DATA_SOURCE, VITE_APP_KEY, VITE_DATA_SHEET } = import.meta.env
 import { decrypt } from './decryptContent.js'
 import cloneDeep from 'lodash/cloneDeep.js'
+import {getLatLonFromCityName} from './geolocationMarks.js'
 
 export let Storage = {}
 
@@ -37,7 +38,7 @@ const decryptResponse = () =>
 
 export const prepareRows = () => {
   Storage.decryptedResponse = decryptResponse()
-  Storage.responseWithFormatedDates = changeISODateToHoursInResponse(Storage.decryptedResponse) 
+  Storage.responseWithFormatedDates = changeISODateToHoursInResponse(Storage.decryptedResponse)
 
   return Storage.responseWithFormatedDates
 }
@@ -59,4 +60,15 @@ export const getPreparedCards = () => {
   })
 
   return preparedList
+}
+
+export const getPreparedCardsWithLonLat = () => {
+  const preparedCards = getPreparedCards()
+  const result = preparedCards.map(async ele => {
+    const tatokupa = await getLatLonFromCityName(ele.Miasto.replace('\"', ''))
+    return { ...ele, ...tatokupa  }
+  });
+  console.log(result);
+
+  return Promise.all(result)
 }
