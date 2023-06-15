@@ -1,4 +1,4 @@
-const { VITE_DATA_SOURCE, VITE_APP_KEY, VITE_DATA_SHEET } = import.meta.env
+const { VITE_DATA_SOURCE, VITE_GOOGLE_SHEET_APP_KEY, VITE_DATA_SHEET } = import.meta.env
 import { decrypt } from './decryptContent.js'
 import cloneDeep from 'lodash/cloneDeep.js'
 import {getLatLonFromCityName} from './geolocationMarks.js'
@@ -6,7 +6,7 @@ import {getLatLonFromCityName} from './geolocationMarks.js'
 export let Storage = {}
 
 export const sync = async () => {
-  const res = await fetch(`${VITE_DATA_SOURCE}/values/${VITE_DATA_SHEET}!A:ZZ?key=${VITE_APP_KEY}`)
+  const res = await fetch(`${VITE_DATA_SOURCE}/values/${VITE_DATA_SHEET}!A:ZZ?key=${VITE_GOOGLE_SHEET_APP_KEY}`)
   const fetchJson = await res.json()
   Storage = fetchJson
   return fetchJson
