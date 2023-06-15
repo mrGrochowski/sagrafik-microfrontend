@@ -24,6 +24,9 @@ const stack = computed(() => {
   font-family: 'Redacted Script', cursive !important;
 }
 
+html {
+    font-size: calc(15px + 0.390625vw);
+}
 #app {
   //@apply min-h-screen bg-gray-50;
   @apply min-h-screen bg-zinc-800;

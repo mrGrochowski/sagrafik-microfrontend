@@ -4,14 +4,10 @@
     <!-- Tutaj będzie tabelka
     {{ headers }} -->
     <div class="card mt-5">
-      <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-emerald-300">Witaj w SA Grafik <br />Online</h1>
+      <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-emerald-300 break-words">Witaj w SA Grafik Online</h1>
       <h4>Wszystkie Meetingi w Polsce na CITO 🔥</h4>
     </div>
-    <div v-for="(card,index) in cards" :key="card['Sygnatura czasowa']" class="card">
-      <!-- <img
-          class="card-image"
-          src="https://maps.geoapify.com/v1/staticmap?style=dark-matter-yellow-roads&width=600&height=400&center=lonlat:19.416073,51.854635&zoom=5.4&pitch=45&marker=lonlat:19.416073,51.854635;type:awesome;color:%23e01401&apiKey=1b48259b810e48ddb151889f9ea58db0"
-        /> -->
+    <div v-for="(card) in cards" :key="card['Sygnatura czasowa']" class="card">
       <img
         class="card-image"
         :src="`https://maps.geoapify.com/v1/staticmap?style=dark-matter-yellow-roads&width=600&height=400&center=lonlat:${card.lon},${card.lat}&zoom=5.4&pitch=45&marker=lonlat:${card.lon},${card.lat};type:awesome;color:%23e01401&apiKey=1b48259b810e48ddb151889f9ea58db0`"
