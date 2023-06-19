@@ -34,6 +34,8 @@ html {
 
 * {
   scroll-behavior: smooth;  
+  scroll-snap-align:center;
+  scroll-snap-type: x mandatory;
 }
 /* nav {
   a.active {
