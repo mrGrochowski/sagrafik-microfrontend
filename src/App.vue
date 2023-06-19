@@ -32,6 +32,9 @@ html {
   @apply min-h-screen bg-zinc-800;
 }
 
+* {
+  scroll-behavior: smooth;  
+}
 /* nav {
   a.active {
     &::after {
