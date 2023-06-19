@@ -7,7 +7,7 @@
         "build": "vite build",
         "serve": "vite preview",
         "predeploy": "npm run build",
-        "deploy": "gh-pages -d dist"
+        "deploy": "echo sagrafik.online > ./dist/CNAME && gh-pages -d dist"
     },
     "dependencies": {
         "crypto-js": "^4.1.1",
