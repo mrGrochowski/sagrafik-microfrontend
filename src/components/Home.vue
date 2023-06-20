@@ -9,7 +9,7 @@
     </div>
     <div v-for="(card,index) in cards" :key="card['Sygnatura czasowa']" class="card" :id="index">
       <img
-        class="card-image"
+        class="card-image gradient"
         :src="`https://maps.geoapify.com/v1/staticmap?style=dark-matter-yellow-roads&width=600&height=400&center=lonlat:${card.lon},${card.lat}&zoom=5.4&pitch=45&marker=lonlat:${card.lon},${card.lat};type:awesome;color:%23e01401&apiKey=1b48259b810e48ddb151889f9ea58db0`"
       />
       <template v-for="(elem, label) in card" :key="elem">
@@ -44,8 +44,30 @@
   margin: -1.25rem;
   width: calc(2 * 1.25rem + 100%) !important;
   max-width: 100vw;
-  //height: 25vh;
+  min-height: 25vh;
   object-fit: cover;
+}
+.gradient {
+    animation-duration: 1.8s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #505050;
+    background: linear-gradient(to right, #b8b8b8 8%, #a0a0a0 38%, #b8b8b8 54%);
+    background-size: 1000px 640px;
+    
+    position: relative;
+    
+}
+
+@keyframes placeHolderShimmer{
+    0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
 }
 </style>
 <script setup>
