@@ -1,7 +1,7 @@
 const { VITE_DATA_SOURCE, VITE_GOOGLE_SHEET_APP_KEY, VITE_DATA_SHEET } = import.meta.env
 import { decrypt } from './decryptContent.js'
 import cloneDeep from 'lodash/cloneDeep.js'
-import {getLatLonFromCityName} from './geolocationMarks.js'
+import { getLatLonFromCityName } from './geolocationMarks.js'
 
 export let Storage = {}
 
@@ -18,23 +18,23 @@ const decryptResponse = () =>
       return index > 0
     })
     .map((row) => row.map((col) => decrypt(col)))
-    
-    const changeISODateToHoursInResponse = (decryptedResponse) => {
-    const regex = /\d{4}\-\d{2}\-\d{2}T/
-    const responseWithTimestampsAsHHMM = decryptedResponse.map((row) =>
-      cloneDeep(row).map((col) => {
-        //get just hour format
-        const condition = regex.test(col)
-        if (condition) {
-          const res = col.match(/\d\d:\d\d/)['0']
-          return res
-        }
-        return col
-      })
-      )
-      
-      return responseWithTimestampsAsHHMM
-  }
+
+const changeISODateToHoursInResponse = (decryptedResponse) => {
+  const regex = /\d{4}\-\d{2}\-\d{2}T/
+  const responseWithTimestampsAsHHMM = decryptedResponse.map((row) =>
+    cloneDeep(row).map((col) => {
+      //get just hour format
+      const condition = regex.test(col)
+      if (condition) {
+        const res = col.match(/\d\d:\d\d/)['0']
+        return res
+      }
+      return col
+    })
+  )
+
+  return responseWithTimestampsAsHHMM
+}
 
 export const prepareRows = () => {
   Storage.decryptedResponse = decryptResponse()
@@ -64,11 +64,11 @@ export const getPreparedCards = () => {
 
 export const getPreparedCardsWithLonLat = () => {
   const preparedCards = getPreparedCards()
-  const result = preparedCards.map(async ele => {
-    const tatokupa = await getLatLonFromCityName(ele.Miasto.replace('\"', ''))
-    return { ...ele, ...tatokupa  }
-  });
-  console.log(result);
+  const result = preparedCards.map(async (ele) => {
+    const tatokupa = await getLatLonFromCityName(ele.Miasto.replace('"', ''))
+    return { ...ele, ...tatokupa }
+  })
+  console.log(result)
 
   return Promise.all(result)
 }
