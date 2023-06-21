@@ -2,6 +2,7 @@ const { VITE_DATA_SOURCE, VITE_GOOGLE_SHEET_APP_KEY, VITE_DATA_SHEET } = import.
 import { decrypt } from './decryptContent.js'
 import cloneDeep from 'lodash/cloneDeep.js'
 import { getLatLonFromCityName } from './geolocationMarks.js'
+import {sortByWeekDay} from './sortShedule.js'
 
 export let Storage = {}
 
@@ -40,6 +41,7 @@ export const prepareRows = () => {
   Storage.decryptedResponse = decryptResponse()
   Storage.responseWithFormatedDates = changeISODateToHoursInResponse(Storage.decryptedResponse)
 
+
   return Storage.responseWithFormatedDates
 }
 
@@ -72,3 +74,5 @@ export const getPreparedCardsWithLonLat = () => {
 
   return Promise.all(result)
 }
+
+export const getSortedCards = async () => await sortByWeekDay(await getPreparedCardsWithLonLat())
