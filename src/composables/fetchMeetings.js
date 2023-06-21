@@ -56,7 +56,7 @@ export const getPreparedCards = () => {
   rows.forEach((row, index) => {
     const obj = {}
     row.forEach((cell, index) => {
-      obj[headers[index]] = cell.replace(/"/g,'')
+      obj[headers[index]] = cell && cell.replace(/"/g,'')
     })
     preparedList.push(obj)
   })
@@ -67,7 +67,7 @@ export const getPreparedCards = () => {
 export const getPreparedCardsWithLonLat = () => {
   const preparedCards = getPreparedCards()
   const result = preparedCards.map(async (ele) => {
-    const tatokupa = await getLatLonFromCityName(ele.Miasto.replace('"', ''))
+    const tatokupa = await getLatLonFromCityName(ele.Miasto)
     return { ...ele, ...tatokupa }
   })
 
