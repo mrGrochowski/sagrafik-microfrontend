@@ -56,7 +56,7 @@ export const getPreparedCards = () => {
   rows.forEach((row, index) => {
     const obj = {}
     row.forEach((cell, index) => {
-      obj[headers[index]] = cell
+      obj[headers[index]] = cell.replace(/"/g,'')
     })
     preparedList.push(obj)
   })
@@ -70,7 +70,6 @@ export const getPreparedCardsWithLonLat = () => {
     const tatokupa = await getLatLonFromCityName(ele.Miasto.replace('"', ''))
     return { ...ele, ...tatokupa }
   })
-  console.log(result)
 
   return Promise.all(result)
 }
