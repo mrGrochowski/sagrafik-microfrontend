@@ -72,7 +72,7 @@
 </style>
 <script setup>
 import { ref, onMounted, onActivated } from 'vue'
-import { sync, Storage, getRows, getHeaders, getPreparedCards, getPreparedCardsWithLonLat } from '../composables/fetchMeetings.js'
+import { sync, Storage, getRows, getHeaders, getPreparedCards, getPreparedCardsWithLonLat, getSortedCards } from '../composables/fetchMeetings.js'
 import { getLatLonFromCityName } from '../composables/geolocationMarks.js'
 import Scheduler from './Scheduler/Index.vue'
 import PasswordPopup from './PasswordPopup.vue'
@@ -87,6 +87,7 @@ import saLogo from '../../public/logo.svg'
 
     rows.value = getRows()
     headers.value = getHeaders()
-    cards.value = await getPreparedCardsWithLonLat()
+    //cards.value = await getPreparedCardsWithLonLat()
+    cards.value = await getSortedCards()
 
 </script>
