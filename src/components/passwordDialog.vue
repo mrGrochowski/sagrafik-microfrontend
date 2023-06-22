@@ -1,11 +1,10 @@
 <template>
 
-  <div id="popup-modal" tabindex="-1" class="fixed top-0 left-0 right-0 bottom-0 z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-full">
-    <a href="#_clear" class="w-full h-full absolute top-0 left-0 block backdrop-blur bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75"></a>
+  <div id="popup-modal" tabindex="-1" class="fixed top-0 left-0 right-0 bottom-0 z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-full flex justify-center items-center">
+    <div class="w-full h-full absolute top-0 left-0 block backdrop-blur bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75"></div>
     <div class="relative w-full max-w-md max-h-full">
       <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-        <a
-          href="#_clear"
+        <!-- <span
           class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
           data-modal-hide="popup-modal"
         >
@@ -17,7 +16,7 @@
             ></path>
           </svg>
           <span class="sr-only">Close modal</span>
-        </a>
+        </span> -->
         <div class="p-6 text-center">
           <logo class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200"></logo>
           <h2 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-white break-words;"> Witaj w SA Grafik Online </h2>

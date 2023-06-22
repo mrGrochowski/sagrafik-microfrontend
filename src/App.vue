@@ -1,5 +1,6 @@
 <template>
   <div :class="{ 'devMode' : VITE_DEVMODE == 1}">
+    <passwordDialog v-if="state.password.value==''"/>
     <Suspense><router-view class="p-2"></router-view></Suspense>
     <Nav />
   </div>
@@ -9,9 +10,14 @@
 import { computed } from 'vue'
 import { useStore } from 'vuex'
 import Nav from './components/Nav/Index.vue'
+import { useGlobalState } from './composables/globalState';
+import passwordDialog from './components/passwordDialog.vue'
 const { VITE_DEVMODE } = import.meta.env
 
 const store = useStore()
+
+const state = useGlobalState()
+
 const user = ''
 const stack = computed(() => {
   return store.state.stack

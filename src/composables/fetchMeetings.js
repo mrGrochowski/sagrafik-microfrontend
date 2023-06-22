@@ -5,6 +5,7 @@ import { getLatLonFromCityName } from './geolocationMarks.js'
 import {sortByWeekDay} from './sortShedule.js'
 
 export let Storage = {}
+//todo CHANGE THIS STORAGE ON GLOBAL STATE
 
 export const sync = async () => {
   const res = await fetch(`${VITE_DATA_SOURCE}/values/${VITE_DATA_SHEET}!A:ZZ?key=${VITE_GOOGLE_SHEET_APP_KEY}`)
@@ -50,7 +51,7 @@ export const getHeaders = () => Storage.values && Storage.values[0]
 
 export const getPreparedCards = () => {
   const preparedList = []
-  const rows = prepareRows()
+  const rows = getRows()
   const headers = getHeaders()
 
   rows.forEach((row, index) => {

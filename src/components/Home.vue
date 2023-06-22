@@ -1,6 +1,5 @@
 <template>
-  <passwordDialog v-if="state.password.value==''"/>
-  <div v-if="state.password.value==123" class="card-container">
+  <div class="card-container">
     <div class="card card--dark">
       <h1 class="heading"><div id="logo" class="inline-block md:hidden w-1/6 radius bg-emerald-300 text-zinc-800 rounded-xl px-1"><saLogo class="inline-block"></saLogo></div> Witaj w SA Grafik Online </h1>
       <h4>Wszystkie Meetingi w Polsce na CITO </h4>
@@ -22,6 +21,40 @@
     </div>
   </div>
 </template>
+
+
+<script setup>
+import { ref, onMounted, onActivated, watch } from 'vue'
+import { sync, Storage, getRows, getHeaders, getPreparedCards, getPreparedCardsWithLonLat, getSortedCards } from '../composables/fetchMeetings.js'
+import { getLatLonFromCityName } from '../composables/geolocationMarks.js'
+import Scheduler from './Scheduler/Index.vue'
+import isArray from 'lodash/isArray'
+import saLogo from '../../public/logo.svg'
+import passwordDialog from './passwordDialog.vue'
+import { createGlobalState } from '@vueuse/core'
+import {useGlobalState} from '../composables/globalState.js'
+
+    const state = useGlobalState() 
+
+    const jsonFrom = ref([])
+    const rows = ref([])
+    const headers = ref([])
+    const cards = ref([])
+    const latlon = ref([])
+    await sync()
+
+      watch(state.password, async e => {
+      if (e!='') {
+        rows.value = getRows()
+        headers.value = getHeaders()
+        cards.value = await getSortedCards()
+      }
+      
+    }) 
+    
+    
+</script>
+
 
 <style lang="scss" scoped>
 .card-container {
@@ -68,30 +101,3 @@
     }
 }
 </style>
-<script setup>
-import { ref, onMounted, onActivated, watch } from 'vue'
-import { sync, Storage, getRows, getHeaders, getPreparedCards, getPreparedCardsWithLonLat, getSortedCards } from '../composables/fetchMeetings.js'
-import { getLatLonFromCityName } from '../composables/geolocationMarks.js'
-import Scheduler from './Scheduler/Index.vue'
-import isArray from 'lodash/isArray'
-import saLogo from '../../public/logo.svg'
-import passwordDialog from './passwordDialog.vue'
-import { createGlobalState } from '@vueuse/core'
-import {useGlobalState} from '../composables/globalState.js'
-
-    const state = useGlobalState() 
-
-    const jsonFrom = ref([])
-    const rows = ref([])
-    const headers = ref([])
-    const cards = ref([])
-    const latlon = ref([])
-    await sync()
-
-   watch(state.password,e=>console.log("🚀 ~ file: Home.vue:91 ~ state:", state)) 
-    rows.value = getRows()
-    headers.value = getHeaders()
-    //cards.value = await getPreparedCardsWithLonLat()
-    cards.value = await getSortedCards()
-    
-</script>

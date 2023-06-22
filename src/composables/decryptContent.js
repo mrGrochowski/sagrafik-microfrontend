@@ -1,6 +1,11 @@
 import AES from 'crypto-js/aes';
 import CryptoJS from 'crypto-js';
+import { useGlobalState } from './globalState.js';
 
-const getPIN = window.prompt("PODAJ STANDARDOWE HASŁO"); 
 
-export const decrypt = text => CryptoJS.enc.Utf8.stringify(AES.decrypt(text, getPIN));
+export const decrypt = text => {
+    const state = useGlobalState()
+    const getPIN = state.password.value; 
+    console.log("🚀 ~ file: decryptContent.js:8 ~ getPIN:", getPIN)
+   return CryptoJS.enc.Utf8.stringify(AES.decrypt(text, getPIN));
+}    
