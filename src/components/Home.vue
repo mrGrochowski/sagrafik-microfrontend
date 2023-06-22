@@ -1,5 +1,5 @@
 <template>
-  <!-- <PasswordPopup /> -->
+  <passwordDialog></passwordDialog>
   <div class="card-container">
     <!-- Tutaj będzie tabelka
     {{ headers }} -->
@@ -75,9 +75,9 @@ import { ref, onMounted, onActivated } from 'vue'
 import { sync, Storage, getRows, getHeaders, getPreparedCards, getPreparedCardsWithLonLat, getSortedCards } from '../composables/fetchMeetings.js'
 import { getLatLonFromCityName } from '../composables/geolocationMarks.js'
 import Scheduler from './Scheduler/Index.vue'
-import PasswordPopup from './PasswordPopup.vue'
 import isArray from 'lodash/isArray'
 import saLogo from '../../public/logo.svg'
+import passwordDialog from './passwordDialog.vue'
     const jsonFrom = ref([])
     const rows = ref([])
     const headers = ref([])
