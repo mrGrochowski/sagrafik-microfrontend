@@ -10,6 +10,7 @@
         "deploy": "echo sagrafik.online > ./dist/CNAME && gh-pages -d dist"
     },
     "dependencies": {
+        "@vueuse/core": "^10.2.0",
         "crypto-js": "^4.1.1",
         "dayjs": "^1.11.8",
         "eruda": "^3.0.0",
