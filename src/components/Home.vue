@@ -1,9 +1,7 @@
 <template>
   <passwordDialog></passwordDialog>
   <div class="card-container">
-    <!-- Tutaj będzie tabelka
-    {{ headers }} -->
-    <div class="card">
+    <div class="card bg-zinc-900">
       <h1 class="heading"><div id="logo" class="inline-block md:hidden w-1/6 radius bg-emerald-300 text-zinc-800 rounded-xl px-1"><saLogo class="inline-block"></saLogo></div> Witaj w SA Grafik Online </h1>
       <h4>Wszystkie Meetingi w Polsce na CITO </h4>
     </div>
