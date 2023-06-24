@@ -51,6 +51,6 @@
 <script setup>
 import logo from '../../public/logo.svg'
 import {useGlobalState} from '../composables/globalState.js'
-
-    const state = useGlobalState() 
+  const state = useGlobalState() 
+  const {password,passwordGuard} = state
 </script>

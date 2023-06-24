@@ -4,7 +4,8 @@ import { createGlobalState } from '@vueuse/core'
 export const useGlobalState = createGlobalState(
   () => {
         const password = ref('')
-        const isPasswordCorrect = ref('')
-    return { password, isPasswordCorrect }
+    const passwordGuard = ref(false)
+    const Storage = ref('')
+    return { password, passwordGuard , Storage }
   }
 )

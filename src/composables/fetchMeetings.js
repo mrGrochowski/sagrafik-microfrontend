@@ -2,24 +2,27 @@ const { VITE_DATA_SOURCE, VITE_GOOGLE_SHEET_APP_KEY, VITE_DATA_SHEET } = import.
 import { decrypt } from './decryptContent.js'
 import cloneDeep from 'lodash/cloneDeep.js'
 import { getLatLonFromCityName } from './geolocationMarks.js'
-import {sortByWeekDay} from './sortShedule.js'
+import { sortByWeekDay } from './sortShedule.js'
+import { useGlobalState } from '../composables/globalState.js'
 
-export let Storage = {}
+export let { Storage } = useGlobalState()
 //todo CHANGE THIS STORAGE ON GLOBAL STATE
 
 export const sync = async () => {
   const res = await fetch(`${VITE_DATA_SOURCE}/values/${VITE_DATA_SHEET}!A:ZZ?key=${VITE_GOOGLE_SHEET_APP_KEY}`)
   const fetchJson = await res.json()
-  Storage = fetchJson
+  Storage.value = fetchJson
   return fetchJson
 }
+
 const decryptResponse = () =>
-  Storage.values
+  Storage.value.values
     .filter((element, index) => {
       //ommit heading section of table
       return index > 0
     })
     .map((row) => row.map((col) => decrypt(col)))
+
 
 const changeISODateToHoursInResponse = (decryptedResponse) => {
   const regex = /\d{4}\-\d{2}\-\d{2}T/
@@ -38,7 +41,9 @@ const changeISODateToHoursInResponse = (decryptedResponse) => {
   return responseWithTimestampsAsHHMM
 }
 
+
 export const prepareRows = () => {
+
   Storage.decryptedResponse = decryptResponse()
   Storage.responseWithFormatedDates = changeISODateToHoursInResponse(Storage.decryptedResponse)
 
@@ -47,7 +52,7 @@ export const prepareRows = () => {
 }
 
 export const getRows = prepareRows
-export const getHeaders = () => Storage.values && Storage.values[0]
+export const getHeaders = () => Storage.value.values && Storage.value.values[0]
 
 export const getPreparedCards = () => {
   const preparedList = []
@@ -57,7 +62,7 @@ export const getPreparedCards = () => {
   rows.forEach((row, index) => {
     const obj = {}
     row.forEach((cell, index) => {
-      obj[headers[index]] = cell && cell.replace(/"/g,'')
+      obj[headers[index]] = cell && cell.replace(/"/g, '')
     })
     preparedList.push(obj)
   })
@@ -68,8 +73,8 @@ export const getPreparedCards = () => {
 export const getPreparedCardsWithLonLat = () => {
   const preparedCards = getPreparedCards()
   const result = preparedCards.map(async (ele) => {
-    const tatokupa = await getLatLonFromCityName(ele.Miasto)
-    return { ...ele, ...tatokupa }
+    const rest = await getLatLonFromCityName(ele.Miasto)
+    return { ...ele, ...rest }
   })
 
   return Promise.all(result)
