@@ -3,7 +3,7 @@
   
     <passwordDialog v-if="!passwordGuard"/>
     <div class="card card--dark">
-      <h1 class="heading"><div id="logo" class="inline-block md:hidden w-1/6 radius bg-emerald-300 text-zinc-800 rounded-xl px-1"><saLogo class="inline-block"></saLogo></div> Witaj w SA Grafik Online </h1>
+      <h1 class="heading"><div id="logo" class="inline-block md:hidden w-1/6 radius bg-emerald-300 text-slate-800 rounded-xl px-1"><saLogo class="inline-block"></saLogo></div> Witaj w SA Grafik Online </h1>
       <h4>Wszystkie Meetingi w Polsce na CITO </h4>
     </div>
     <div v-for="(card,index) in cards" :key="card['Sygnatura czasowa']" class="card" :id="index">
@@ -47,7 +47,6 @@ console.clear();
     
     watch(password, async e => {
       await checkPasswordCorrect()
-      console.log('passwordGuard'+passwordGuard.value);
       if (e!='' && passwordGuard.value) {
         rows.value = getRows()
         headers.value = getHeaders()
