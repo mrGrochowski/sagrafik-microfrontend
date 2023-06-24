@@ -7,15 +7,13 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useStore } from 'vuex'
 import Nav from './components/Nav/Index.vue'
+import { useGlobalState } from './composables/globalState';
 const { VITE_DEVMODE } = import.meta.env
 
-const store = useStore()
-const user = ''
-const stack = computed(() => {
-  return store.state.stack
-})
+
+const state = useGlobalState()
+
 
 </script>
 
