@@ -14,7 +14,7 @@
       <template v-for="(elem, label) in card" :key="elem">
       <div :class="`${label=='Sygnatura czasowa' ? 'mt-5' : ''}`" >
         <span> {{ label }}: </span>
-        <strong v-if="elem.toString().match('http')">
+        <strong v-if="elem && elem.toString().match('http')">
           <a :href="elem">{{ elem }}</a>
         </strong>
         <strong v-else>{{ elem }}</strong>
