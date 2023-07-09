@@ -16,7 +16,5 @@ export default defineConfig({
     },
   },
   publicPath: '/',
-  //publicPath: '/sagrafik-microfrontend/',
-  //base: '/sagrafik-microfrontend/',
   base: '/',
 })
