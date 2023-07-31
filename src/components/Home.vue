@@ -2,7 +2,7 @@
   <div class="card-container">
   
     <passwordDialog v-if="!passwordGuard"/>
-    <div class="card card--dark">
+    <div class="card card--special card--dark">
       <h1 class="heading"><div id="logo" class="inline-block md:hidden w-1/6 radius bg-emerald-300 text-slate-800 rounded-xl px-1"><saLogo class="inline-block"></saLogo></div> Witaj w SA Grafik Online </h1>
       <h4>Wszystkie Meetingi w Polsce na CITO </h4>
     </div>
@@ -60,13 +60,16 @@ console.clear();
 
 <style lang="scss" scoped>
 .card-container {
-  @apply flex flex-col md:flex-row md:pl-9 md:items-stretch pb-6 w-full overflow-y-auto md:h-screen;
+  @apply flex flex-col md:pl-9 pb-6 w-full;
 }
 .card {
-  @apply flex-auto mt-5 md:mt-0 shrink-0 bg-gray-100 shadow-xl shadow-gray-800 w-5/6 md:w-2/3 lg:w-1/3 px-5 py-4 mb-10 mx-10 md:px-4 md:mb-0 rounded-xl overflow-auto break-all md:overflow-hidden ;
+  @apply flex-auto mt-5 shrink-0 bg-gray-100 shadow-xl shadow-gray-800 w-5/6 rounded-xl overflow-auto break-all px-5 py-4 mb-10 mx-10 md:mt-0 md:w-2/3 lg:w-1/3 md:px-4 md:mb-0 md:overflow-hidden;
   &--dark {
     @apply bg-zinc-700 text-slate-200
   }
+}
+.card--special {
+  
 }
 .heading {
   @apply mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-emerald-300 break-words;
