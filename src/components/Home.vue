@@ -7,10 +7,10 @@
       <h4>Wszystkie Meetingi w Polsce na CITO </h4>
     </div>
     <div v-for="(card,index) in cards" :key="card['Sygnatura czasowa']" class="card" :id="index">
-      <img
+      <!-- <img
         class="card-image gradient"
         :src="`https://maps.geoapify.com/v1/staticmap?style=dark-matter-yellow-roads&width=600&height=400&center=lonlat:${card.lon},${card.lat}&zoom=5.4&pitch=45&marker=lonlat:${card.lon},${card.lat};type:awesome;color:%23e01401&apiKey=1b48259b810e48ddb151889f9ea58db0`"
-      />
+      /> -->
       <template v-for="(elem, label) in card" :key="elem">
       <div :class="`${label=='Sygnatura czasowa' ? 'mt-5' : ''}`" >
         <span> {{ label }}: </span>
@@ -63,7 +63,8 @@ console.clear();
   @apply flex flex-col md:pl-9 pb-6 w-full;
 }
 .card {
-  @apply flex-auto mt-5 shrink-0 bg-gray-100 shadow-xl shadow-gray-800 w-5/6 rounded-xl overflow-auto break-all px-5 py-4 mb-10 mx-10 md:mt-0 md:w-2/3 lg:w-1/3 md:px-4 md:mb-0 md:overflow-hidden;
+  //@apply flex-auto mt-5 shrink-0 bg-gray-100 shadow-xl shadow-gray-800 w-5/6 rounded-xl overflow-auto break-all px-5 py-4 mb-10 mx-10 md:mt-0 md:w-2/3 lg:w-1/3 md:px-4 md:mb-0 md:overflow-hidden;
+  @apply  w-5/6 md:w-1/2 mb-5 p-5  self-center bg-slate-200 rounded-xl shadow-xl break-all;
   &--dark {
     @apply bg-zinc-700 text-slate-200
   }
