@@ -66,7 +66,7 @@ export const getPreparedCards = () => {
     })
     preparedList.push(obj)
   })
-
+  
   return preparedList
 }
 
@@ -80,4 +80,30 @@ export const getPreparedCardsWithLonLat = () => {
   return Promise.all(result)
 }
 
+export const getPreparedMiniCards = () => {
+  const preparedCards = getPreparedCards()
+  
+  const minifyedCards = preparedCards.map(
+    element => {
+      const allowedFields = [
+        'Nazwa Meetingu',
+        'Godzina rozpoczęcia',
+        'Dzień tygodnia',
+        'Miasto',
+        'Numer telefonu',
+        'Id spotkania',
+        'Numer pin',
+        'Link'
+      ]
+      const result = allowedFields.reduce((acc, field) => {
+        return { ...acc, ...(element[field] !== '' && {[field]: element[field]} )  }
+      }, { })      
+      return result
+    }
+  )
+
+  return minifyedCards
+}
+
 export const getSortedCards = async () => await sortByWeekDayAndHours(await getPreparedCardsWithLonLat())
+export const getSortedMiniCards = async () => await sortByWeekDayAndHours(await getPreparedMiniCards())
