@@ -16,11 +16,11 @@
       {{ card.Miasto }} {{card['Dzień tygodnia']}}
       </h2>
 
-      <strong class="underline" v-if="!popUpList[index]" @click="togglePopUp(index)">Więcej</strong>
       <template v-if="popUpList[index]" v-for="(elem,label) in card">
         <span>{{ label }}:</span> <strong> {{ elem }}</strong><br/>
       </template>
 
+      <strong class="underline" v-if="!popUpList[index]" @click="togglePopUp(index)">Więcej</strong>
       <strong class="underline" v-if="popUpList[index]" @click="togglePopUp(index)">Zamknij</strong>
     </div>
   </div>
@@ -78,7 +78,7 @@ console.clear();
     @apply overflow-hidden;
   }
   &--pop-up-active {
-    @apply fixed h-auto top-1/3;
+    @apply fixed h-auto top-7;
   }
 }
 .card--special {
