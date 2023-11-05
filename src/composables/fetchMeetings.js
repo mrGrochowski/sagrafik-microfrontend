@@ -93,7 +93,8 @@ export const getPreparedMiniCards = () => {
         'Numer telefonu',
         'Id spotkania',
         'Numer pin',
-        'Link'
+        'Link',
+        'Dodatkowy opis'
       ]
       const result = allowedFields.reduce((acc, field) => {
         return { ...acc, ...(element[field] !== '' && {[field]: element[field]} )  }
