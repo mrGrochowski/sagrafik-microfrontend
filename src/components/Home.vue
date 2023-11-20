@@ -30,18 +30,15 @@
           {{ card.Miasto }} {{ card["Dzień tygodnia"] }}
         </h2>
 
-        
-
         <strong class="underline" @click="togglePopUp(index)">
           Więcej
         </strong>
       </div>
     </template>
-    <Dialog v-if="clickedCard">
+    <Dialog v-if="clickedCard" @close="()=>{clickedCard=false}">
       <template v-for="(elem, label) in clickedCard">
-          <span>{{ label }}:</span> <strong> {{ elem }}</strong
-          ><br />
-        </template>
+        <span>{{ label }}:</span> <strong> {{ elem }}</strong><br />
+      </template>
     </Dialog>
   </div>
 </template>
@@ -88,7 +85,6 @@ watch(password, async (e) => {
 });
 
 const togglePopUp = (index) => {
-  console.log(cards);
   clickedCard.value = cards.value[index];
 };
 </script>
