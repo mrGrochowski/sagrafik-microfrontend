@@ -72,6 +72,12 @@ export const sortByClosest = (collection) => {
   })
 
 // TODO no nie moży być codzinny meeting jako punkt przełamania ,ale na razie nie umiem lepiej
-  const closestpossible = sortCollection.findIndex(e=>e.closestData.day() == today.day())
+  //const closestpossible = sortCollection.findIndex(e=>e.closestData.day() == today.day())
+  const differences = sortCollection.map(date => Math.abs(today.diff(date.closestData, 'milliseconds')));
+  console.log("🚀 ~ file: sortSchedule.js:77 ~ sortByClosest ~ differences:", differences)
+
+  const closestpossible = differences.indexOf(Math.min(...differences));
+  console.log("🚀 ~ file: sortSchedule.js:81 ~ sortByClosest ~ closestpossible:", closestpossible)
   return [...sortCollection.slice(closestpossible, sortCollection.length), ...sortCollection.slice(0, closestpossible)]
+
 }
