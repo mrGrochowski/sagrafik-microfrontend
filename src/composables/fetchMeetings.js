@@ -2,7 +2,7 @@ const { VITE_DATA_SOURCE, VITE_GOOGLE_SHEET_APP_KEY, VITE_DATA_SHEET } = import.
 import { decrypt } from './decryptContent.js'
 import cloneDeep from 'lodash/cloneDeep.js'
 import { getLatLonFromCityName } from './geolocationMarks.js'
-import { sortByWeekDayAndHours } from './sortSchedule.js'
+import { sortByWeekDayAndHours, sortByClosest } from './sortSchedule.js'
 import { useGlobalState } from '../composables/globalState.js'
 
 export let { Storage } = useGlobalState()
@@ -108,3 +108,4 @@ export const getPreparedMiniCards = () => {
 
 export const getSortedCards = async () => await sortByWeekDayAndHours(await getPreparedCardsWithLonLat())
 export const getSortedMiniCards = async () => await sortByWeekDayAndHours(await getPreparedMiniCards())
+export const getSmoothSortedMiniCards = async () => await sortByClosest(await getPreparedMiniCards())

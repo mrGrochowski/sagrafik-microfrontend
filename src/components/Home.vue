@@ -53,6 +53,7 @@ import {
   getPreparedCards,
   getPreparedCardsWithLonLat,
   getSortedMiniCards,
+  getSmoothSortedMiniCards
 } from "../composables/fetchMeetings.js";
 import { checkPasswordCorrect } from "../composables/decryptContent.js";
 import { getLatLonFromCityName } from "../composables/geolocationMarks.js";
@@ -79,7 +80,7 @@ watch(password, async (e) => {
   if (e != "" && passwordGuard.value) {
     rows.value = getRows();
     headers.value = getHeaders();
-    cards.value = await getSortedMiniCards();
+    cards.value = await getSmoothSortedMiniCards();
     popUpList.value = await [...Array(cards.value.length)].map((e) => false);
   }
 });

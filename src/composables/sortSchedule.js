@@ -25,3 +25,53 @@ export const sortByWeekDayAndHours = (collection) => {
   })
   return sortCollection
 }
+
+
+function findDayOfMonth(dayOfWeek) {
+  const today = dayjs();
+  let currentDate = today.clone();
+
+  for (let i = 0; i < 7; i++) {
+    currentDate = currentDate.add(1, 'day');
+    if (currentDate.day() === dayOfWeek) {
+      return currentDate;
+    }
+  }
+
+  return -1; // If no occurrence found within the next 7 days
+}
+
+const prepareDate = (a) => {
+  const daysOfWeekPL = ['Niedziela','Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota']
+  const dayOfWeekInPL = capitalize(a['Dzień tygodnia']).toString()
+  const dayOfWeekInPLWithEveryday = dayOfWeekInPL === "Codziennie" ? daysOfWeekPL[dayjs().day()] : dayOfWeekInPL
+
+  const closestDate = findDayOfMonth(daysOfWeekPL.indexOf(dayOfWeekInPLWithEveryday))
+
+  const hour = a['Godzina rozpoczęcia'].slice(0, 2)
+  const minute = a['Godzina rozpoczęcia'].slice(3, 5)
+  const closesDateAndTime = closestDate
+    .set('hour', hour)
+    .set('minute', minute)
+    .set('second', 0);
+    
+  return closesDateAndTime
+}
+
+export const sortByClosest = (collection) => {
+
+  const today = dayjs()
+  const preparedCollection = collection.map(e=> ({...e,closestData:prepareDate(e)}))
+  const sortCollection = [...preparedCollection].sort((a, b) => {
+    const closesDateAndTime_A = a.closestData
+    const closesDateAndTime_B = b.closestData
+    
+    if (closesDateAndTime_A.isAfter(closesDateAndTime_B)) return 1
+    if (closesDateAndTime_B.isAfter(closesDateAndTime_A)) return -1
+    return 0
+  })
+
+// TODO no nie moży być codzinny meeting jako punkt przełamania ,ale na razie nie umiem lepiej
+  const closestpossible = sortCollection.findIndex(e=>e.closestData.day() == today.day())
+  return [...sortCollection.slice(closestpossible, sortCollection.length), ...sortCollection.slice(0, closestpossible)]
+}
