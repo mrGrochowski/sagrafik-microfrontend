@@ -1,1 +1,1 @@
-{"name":"vite-vue3-boilerplate","short_name":"vite-vue3-boilerplate","start_url":"/","display":"standalone","background_color":"#ffffff","lang":"en","scope":"/"}
+{"name":"sagrafik.online","short_name":"SAgrafik","start_url":"/","display":"standalone","background_color":"#ffffff","lang":"en","scope":"/","description":"Meetingi w całej Polsce na CITO","theme_color":"#27272a","icons":[{"src":"logo.png","sizes":"192x192","type":"image/png"},{"src":"logo.png","sizes":"512x512","type":"image/png"},{"src":"logo.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}]}
