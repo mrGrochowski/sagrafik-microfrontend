@@ -1,7 +1,9 @@
 import dayjs from 'dayjs'
 import customParseFormat from "dayjs/plugin/customParseFormat";
+import dayjsPL from 'dayjs/locale/pl';
 import { capitalize, sortBy } from 'lodash'
 
+dayjs.locale(dayjsPL);
 dayjs.extend(customParseFormat);
 
 export const sortByWeekDayAndHours = (collection) => {
@@ -27,7 +29,7 @@ export const sortByWeekDayAndHours = (collection) => {
 }
 
 
-export const sortByClosest = (collection) => {
+/* export const sortByClosest = (collection) => {
   const daysOfWeekPL = ['Niedziela','Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota' ]
   const today = dayjs().day()
   const daysOfWeekWithTodayOnFirst = [...daysOfWeekPL.slice(today ), ...daysOfWeekPL.slice(0, today)]
@@ -50,4 +52,53 @@ export const sortByClosest = (collection) => {
     return 0
   })
   return sortCollection
+} */
+
+
+function findDayOfMonth() { 
+  const currentDate = dayjs();
+
+  const currentDayOfWeek = currentDate.day();
+  const startOfWeek = currentDate.subtract(currentDayOfWeek, 'day');
+  const weekDates = [];
+
+  for (let i = 0; i < 7; i++) {
+    const date = startOfWeek.add(i, 'day');
+    weekDates.push(date);
+  }
+
+  const result = weekDates.map((date) => {
+    const dayName = capitalize(dayjs(date).format('dddd'));
+    return {dayOfWeek:dayName,date}
+  }); 
+  return result
+} 
+
+
+export const sortByClosest = (collection) => {
+  const daysOfWeekPL = findDayOfMonth()
+  const today = dayjs()
+
+  const collectionWithDates = collection.map(e => {
+    const dzientygodnia = capitalize(e['Dzień tygodnia']).toString() == 'Codziennie' ? capitalize(today.format('dddd')) : capitalize(e['Dzień tygodnia']).toString();
+
+    const hour = e['Godzina rozpoczęcia'].slice(0, 2) 
+    const minute = e['Godzina rozpoczęcia'].slice(3, 5) 
+    
+    const dateAndTime = daysOfWeekPL.find(e => e.dayOfWeek == dzientygodnia).date
+      .set('hour', hour) 
+      .set('minute', minute) 
+      .set('second', 0);
+    return {...e,dateAndTime}
+  }) 
+  const sortCollection = [...collectionWithDates].sort((a, b) => {
+    if (a.dateAndTime.isAfter(b.dateAndTime)) return 1
+    if (b.dateAndTime.isAfter(a.dateAndTime)) return -1
+    return 0
+  }) 
+
+  const differences = sortCollection.map(e => Math.abs(today.diff(e.dateAndTime, 'minute')));  
+  const closestpossible = differences.indexOf(Math.min(...differences)); 
+  return [...sortCollection.slice(closestpossible, sortCollection.length), ...sortCollection.slice(0, closestpossible)] 
+
 }
