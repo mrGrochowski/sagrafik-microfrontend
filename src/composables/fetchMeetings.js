@@ -17,10 +17,10 @@ export const sync = async () => {
 
 const decryptResponse = () =>
   Storage.value.values
-    .filter((element, index) => {
+    /* .filter((element, index) => {
       //ommit heading section of table
       return index > 0
-    })
+    }) */
     .map((row) => row.map((col) => decrypt(col)))
 
 
@@ -52,12 +52,12 @@ export const prepareRows = () => {
 }
 
 export const getRows = prepareRows
-export const getHeaders = () => Storage.value.values && Storage.value.values[0]
+export const getHeaders = () => Storage.decryptedResponse[0]
 
 export const getPreparedCards = () => {
   const preparedList = []
-  const rows = getRows()
-  const headers = getHeaders()
+  const rows = getRows().slice(1);
+  const headers = getHeaders().map(e=> e.replace(/"/g, '').replace(/\s$/,''))
 
   rows.forEach((row, index) => {
     const obj = {}
@@ -82,7 +82,6 @@ export const getPreparedCardsWithLonLat = () => {
 
 export const getPreparedMiniCards = () => {
   const preparedCards = getPreparedCards()
-  
   const minifyedCards = preparedCards.map(
     element => {
       const allowedFields = [
@@ -98,7 +97,7 @@ export const getPreparedMiniCards = () => {
       ]
       const result = allowedFields.reduce((acc, field) => {
         return { ...acc, ...(element[field] !== '' && {[field]: element[field]} )  }
-      }, { })      
+      }, {}) 
       return result
     }
   )
@@ -108,4 +107,4 @@ export const getPreparedMiniCards = () => {
 
 export const getSortedCards = async () => await sortByWeekDayAndHours(await getPreparedCardsWithLonLat())
 export const getSortedMiniCards = async () => await sortByWeekDayAndHours(await getPreparedMiniCards())
-export const getSmoothSortedMiniCards = async () => await sortByClosest(await getPreparedMiniCards())
+export const getSmoothSortedMiniCards = async () => await sortByClosest(await getPreparedMiniCards()) 
