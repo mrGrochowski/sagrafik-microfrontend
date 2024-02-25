@@ -10,7 +10,7 @@ export default defineConfig({
       svgo: false,
     }),
     VitePWA({
-      registerType: 'prompt',
+      registerType: 'autoUpdate',
       devOptions: {
         enabled: true
       },
