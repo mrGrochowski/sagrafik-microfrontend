@@ -15,6 +15,22 @@ export default defineConfig({
         enabled: true
       },
       includeAssets: ['favicon.ico'],
+      workbox: {
+        runtimeCaching: [{
+          handler: 'CacheFirst',
+          urlPattern: /^https:\/\/sheets\.googleapis\.com*/,
+          method: 'GET',
+          options: {
+            cacheName: 'google-sheet',
+            expiration: {
+            maxAgeSeconds: 60 * 2
+            },
+            cacheableResponse: {
+              statuses: [0, 200]
+            }
+          }
+        }]
+      },
       manifest: {
         name: 'sagrafik.online',
         short_name: 'SAgrafik',
