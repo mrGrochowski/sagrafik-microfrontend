@@ -23,7 +23,7 @@ export default defineConfig({
           options: {
             cacheName: 'google-sheet',
             expiration: {
-            maxAgeSeconds: 60 * 2
+            maxAgeSeconds: 60 * 60 * 24
             },
             cacheableResponse: {
               statuses: [0, 200]
