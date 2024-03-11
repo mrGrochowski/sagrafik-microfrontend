@@ -65,7 +65,6 @@ import passwordDialog from "./passwordDialog.vue";
 import Dialog from "./Dialog.vue";
 import { useGlobalState } from "../composables/globalState.js";
 import _ from "lodash";
-console.clear();
 await sync();
 const { password, passwordGuard } = useGlobalState();
 

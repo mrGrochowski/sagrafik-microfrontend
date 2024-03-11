@@ -17,7 +17,7 @@ export default defineConfig({
       includeAssets: ['favicon.ico'],
       workbox: {
         runtimeCaching: [{
-          handler: 'CacheFirst',
+          handler: 'NetworkFirst',
           urlPattern: /^https:\/\/sheets\.googleapis\.com*/,
           method: 'GET',
           options: {

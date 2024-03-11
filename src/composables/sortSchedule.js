@@ -85,7 +85,6 @@ export const sortByClosest = (collection) => {
     const hour = e['Godzina rozpoczęcia'].slice(0, 2) 
     const minute = e['Godzina rozpoczęcia'].slice(3, 5) 
     
-    console.log(dzientygodnia)
     const dateAndTime = daysOfWeekPL.find(el => el.dayOfWeek == dzientygodnia).date
       .set('hour', hour) 
       .set('minute', minute) 
