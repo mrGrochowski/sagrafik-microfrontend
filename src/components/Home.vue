@@ -12,6 +12,7 @@
         Witaj w SA Grafik Online
       </h1>
       <h4>Wszystkie Meetingi w Polsce na CITO</h4>
+      <span class="text-xs">Jeżeli potrzebujesz edytować meeting skontaktuj się z nami na email <a href="mailto:sagrafik.online@gmail.com">sagrafik.online@gmail.com</a>. Możesz też dodać nowy meeting klikając w przycisk poniżej.</span>
       <a
         class="rounded-full shadow-sm bg-emerald-300 text-slate-600 p-2 inline-block mt-3 mx-auto"
         href="https://docs.google.com/forms/d/e/1FAIpQLSe9KC-zzcd89iinRnFIZoK7rjcRsFJjsFwFz3u6Wcad3rS2WQ/viewform"
