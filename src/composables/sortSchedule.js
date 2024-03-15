@@ -89,6 +89,7 @@ export const sortByClosest = (collection) => {
       .set('hour', hour) 
       .set('minute', minute) 
       .set('second', 0);
+    
     return {...e,dateAndTime}
   }) 
   const sortCollection = [...collectionWithDates].sort((a, b) => {
@@ -96,9 +97,12 @@ export const sortByClosest = (collection) => {
     if (b.dateAndTime.isAfter(a.dateAndTime)) return -1
     return 0
   }) 
-
+  const sortCollectionWithoutDateAndTime = structuredClone(sortCollection).map(e => {
+    delete e.dateAndTime
+    return e
+  })
   const differences = sortCollection.map(e => Math.abs(today.diff(e.dateAndTime, 'minute')));  
   const closestpossible = differences.indexOf(Math.min(...differences)); 
-  return [...sortCollection.slice(closestpossible, sortCollection.length), ...sortCollection.slice(0, closestpossible)] 
+  return [...sortCollectionWithoutDateAndTime.slice(closestpossible, sortCollectionWithoutDateAndTime.length), ...sortCollectionWithoutDateAndTime.slice(0, closestpossible)] 
 
 }
