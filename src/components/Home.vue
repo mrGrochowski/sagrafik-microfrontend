@@ -22,23 +22,31 @@
     
     <template v-for="(card, index) in cards" :key="card['Sygnatura czasowa']">
       
-      <div class="card card--pop-up" :class="{ 'card--pop-up-active': popUpList[index] }">
+      <div class="card card--pop-up isolate relative hover:shadow-[0_0px_60px_-15px_#99f6e4]" @click="togglePopUp(index)" >
         <span>{{ card["Dzień tygodnia"] }} {{ card["Godzina rozpoczęcia"] }}</span>
-        <h2 v-if="card?.['Nazwa Meetingu'] != ''" class="text-lg font-bold">
+        <h2 v-if="card?.['Nazwa Meetingu'] != ''" class="text-lg font-bold pr-5 break-words">
           {{ card["Nazwa Meetingu"] }}
         </h2>
-        <h2 v-if="_.isUndefined(card['Nazwa Meetingu'])" class="text-lg font-bold">
+        <h2 v-if="_.isUndefined(card['Nazwa Meetingu'])" class="text-lg font-bold pr-5 break-words">
           {{ card.Miasto }} {{ card["Dzień tygodnia"] }}
         </h2>
 
-        <strong class="underline" @click="togglePopUp(index)">
-          Więcej
+        <strong class="absolute right-5 top-[50%]" @click="togglePopUp(index)">
+          <cheveron class="w-[20px]"/>
         </strong>
       </div>
     </template>
     <Dialog v-if="clickedCard" @close="()=>{clickedCard=false}">
-      <template v-for="(elem, label) in clickedCard">
-        <span>{{ label }}:</span> <strong> {{ elem }}</strong><br />
+      <template v-for="(elem, label , index) in clickedCard">
+        <template v-if="!clickedCard.hasOwnProperty('Nazwa Meetingu') && index == 0">
+          <h4 class="text-xl font-semibold mb-2">{{ clickedCard.Miasto }} {{ clickedCard['Dzień tygodnia'] }}</h4>
+        </template>
+        <template v-if="label == 'Nazwa Meetingu'">
+          <h4 class="text-xl font-semibold mb-2">{{ elem }}</h4>
+        </template>
+        <template v-else> 
+          <span>{{ label }}:</span> <strong> {{ elem }}</strong><br />
+        </template>
       </template>
     </Dialog>
   </div>
@@ -61,6 +69,7 @@ import { getLatLonFromCityName } from "../composables/geolocationMarks.js";
 import Scheduler from "./Scheduler/Index.vue";
 import isArray from "lodash/isArray";
 import saLogo from "../../public/logo.svg";
+import cheveron from "../../public/chevronDown.svg"
 import passwordDialog from "./passwordDialog.vue";
 import Dialog from "./Dialog.vue";
 import { useGlobalState } from "../composables/globalState.js";
@@ -96,7 +105,7 @@ const togglePopUp = (index) => {
 }
 .card {
   //@apply flex-auto mt-5 shrink-0 bg-gray-100 shadow-xl shadow-gray-800 w-5/6 rounded-xl overflow-auto break-all px-5 py-4 mb-10 mx-10 md:mt-0 md:w-2/3 lg:w-1/3 md:px-4 md:mb-0 md:overflow-hidden;
-  @apply w-5/6 md:w-1/2 mb-5 p-5 self-center bg-slate-200 rounded-xl shadow-xl break-all;
+  @apply w-5/6 md:w-1/2 mb-5 p-5 self-center bg-slate-200 rounded-xl shadow-lg;
   &--dark {
     @apply bg-zinc-700 text-slate-200;
   }

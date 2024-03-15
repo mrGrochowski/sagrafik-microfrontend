@@ -27,7 +27,7 @@ html {
 }
 #app {
   //@apply min-h-screen bg-gray-50;
-  @apply min-h-screen bg-zinc-800;
+  @apply min-h-screen bg-[#1f222b];
 }
 
 * {
@@ -35,13 +35,5 @@ html {
   scroll-snap-align:center;
   scroll-snap-type: x mandatory;
 }
-/* nav {
-  a.active {
-    &::after {
-      @apply block w-full bg-green-500;
-      content: '';
-      height: 1.5px;
-    }
-  }
-} */
+
 </style>
