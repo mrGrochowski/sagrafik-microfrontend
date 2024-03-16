@@ -6,14 +6,14 @@ import { getLatLonFromCityName } from './geolocationMarks.js'
 import { sortByWeekDayAndHours, sortByClosest } from './sortSchedule.js'
 import { useGlobalState } from '../composables/globalState.js'
 
-export let { Storage } = useGlobalState()
+export let { Storage , cards } = useGlobalState()
 //todo CHANGE THIS STORAGE ON GLOBAL STATE
 
 export const sync = async () => {
   const res = await fetch(`${VITE_DATA_SOURCE}/values/${VITE_DATA_SHEET}!A:ZZ?key=${VITE_GOOGLE_SHEET_APP_KEY}`)
   const fetchJson = await res.json()
   Storage.value = fetchJson
-  return fetchJson
+  //return fetchJson
 }
 
 const decryptResponse = () =>
@@ -121,4 +121,6 @@ export const miniCardsWithUUID = () => {
 
 export const getSmoothSortedMiniCards = async () => await sortByClosest(await miniCardsWithUUID()) 
 
-//cards.value = async () => await sortByClosest(await miniCardsWithUUID())
+export const setCardsToStore = async () => {
+  cards.value = sortByClosest(await miniCardsWithUUID())
+}
