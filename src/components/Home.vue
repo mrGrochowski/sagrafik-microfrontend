@@ -20,8 +20,13 @@
       >
     </div>
     
+    <router-view></router-view>
     <template v-for="(card, index) in cards" :key="card['Sygnatura czasowa']">
+       <router-link class="text-teal-100" :to="'/meeting/' + card.id">
       
+<!--       <router-link class="text-teal-100" to="/meeting">
+ -->        LINK
+      </router-link>
       <div class="card card--pop-up isolate relative hover:shadow-[0_0px_60px_-15px_#99f6e4]" @click="togglePopUp(index)" >
         <span>{{ card["Dzień tygodnia"] }} {{ card["Godzina rozpoczęcia"] }}</span>
         <h2 v-if="card?.['Nazwa Meetingu'] != ''" class="text-lg font-bold pr-5 break-words">
@@ -31,13 +36,14 @@
           {{ card.Miasto }} {{ card["Dzień tygodnia"] }}
         </h2>
 
-        <strong class="absolute right-5 top-[50%]" @click="togglePopUp(index)">
+        <strong class="absolute right-5 top-[50%]">
           <cheveron class="w-[20px]"/>
         </strong>
       </div>
     </template>
     <Dialog v-if="clickedCard" @close="()=>{clickedCard=false}">
-      <template v-for="(elem, label , index) in clickedCard">
+    <!-- <Dialog v-if="clickedCard" @close="()=>{clickedCard=false}"> -->
+      <!-- <template v-for="(elem, label , index) in clickedCard">
         <template v-if="!clickedCard.hasOwnProperty('Nazwa Meetingu') && index == 0">
           <h4 class="text-xl font-semibold mb-2">{{ clickedCard.Miasto }} {{ clickedCard['Dzień tygodnia'] }}</h4>
         </template>
@@ -47,7 +53,7 @@
         <template v-else> 
           <span>{{ label }}:</span> <strong> {{ elem }}</strong><br />
         </template>
-      </template>
+      </template> -->
     </Dialog>
   </div>
 </template>
@@ -69,8 +75,6 @@ import { useGlobalState } from "../composables/globalState.js";
 import _ from "lodash";
 await sync();
 const { password, passwordGuard } = useGlobalState();
-console.log("🚀 ~ passwordGuard:", passwordGuard)
-console.log("🚀 ~ password:", password)
 
 const rows = ref([]);
 const headers = ref([]);

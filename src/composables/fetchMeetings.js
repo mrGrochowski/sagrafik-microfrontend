@@ -1,6 +1,7 @@
 const { VITE_DATA_SOURCE, VITE_GOOGLE_SHEET_APP_KEY, VITE_DATA_SHEET } = import.meta.env
 import { decrypt } from './decryptContent.js'
 import cloneDeep from 'lodash/cloneDeep.js'
+import uniqueId from 'lodash/uniqueId.js'
 import { getLatLonFromCityName } from './geolocationMarks.js'
 import { sortByWeekDayAndHours, sortByClosest } from './sortSchedule.js'
 import { useGlobalState } from '../composables/globalState.js'
@@ -93,7 +94,7 @@ export const getPreparedMiniCards = () => {
         'Id spotkania',
         'Numer pin',
         'Link',
-        'Dodatkowy opis'
+        'Dodatkowy opis',
       ]
       const result = allowedFields.reduce((acc, field) => {
         return { ...acc, ...(element[field] !== '' && {[field]: element[field]} )  }
@@ -105,6 +106,19 @@ export const getPreparedMiniCards = () => {
   return minifyedCards
 }
 
-export const getSortedCards = async () => await sortByWeekDayAndHours(await getPreparedCardsWithLonLat())
-export const getSortedMiniCards = async () => await sortByWeekDayAndHours(await getPreparedMiniCards())
-export const getSmoothSortedMiniCards = async () => await sortByClosest(await getPreparedMiniCards()) 
+export const miniCardsWithUUID = () => {
+   const uuid = () => {
+    return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, a => (a ^ Math.random() * 16 >> a / 4).toString(16));
+  }
+
+  const obj = getPreparedMiniCards()
+  
+  const result = obj.map((object) => {
+    return {...object, id:uniqueId()}
+  })
+  return result
+}
+
+export const getSmoothSortedMiniCards = async () => await sortByClosest(await miniCardsWithUUID()) 
+
+//cards.value = async () => await sortByClosest(await miniCardsWithUUID())
