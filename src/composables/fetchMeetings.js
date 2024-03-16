@@ -95,6 +95,7 @@ export const getPreparedMiniCards = () => {
         'Numer pin',
         'Link',
         'Dodatkowy opis',
+        'Sygnatura czasowa'
       ]
       const result = allowedFields.reduce((acc, field) => {
         return { ...acc, ...(element[field] !== '' && {[field]: element[field]} )  }
@@ -114,13 +115,13 @@ export const miniCardsWithUUID = () => {
   const obj = getPreparedMiniCards()
   
   const result = obj.map((object) => {
-    return {...object, id:uniqueId()}
+    return { id: uniqueId() ,...object }
   })
   return result
 }
 
-export const getSmoothSortedMiniCards = async () => await sortByClosest(await miniCardsWithUUID()) 
+export const getSmoothSortedMiniCards = async () => await sortByClosest(await getPreparedMiniCards()) 
 
 export const setCardsToStore = async () => {
-  cards.value = sortByClosest(await miniCardsWithUUID())
+  cards.value = sortByClosest(await getPreparedMiniCards())
 }

@@ -20,7 +20,7 @@
     <router-view></router-view>
     <template v-for="(card, index) in cards" :key="card['Sygnatura czasowa']">
       <router-link class="card card--pop-up isolate relative hover:shadow-[0_0px_60px_-15px_#99f6e4]"
-        :to="'/meeting/' + card.id">
+        :to="'/meeting/' + card['Sygnatura czasowa']">
         <span>{{ card["Dzień tygodnia"] }} {{ card["Godzina rozpoczęcia"] }}</span>
         <h2 v-if="card?.['Nazwa Meetingu'] != ''" class="text-lg font-bold pr-5 break-words">
           {{ card["Nazwa Meetingu"] }}
