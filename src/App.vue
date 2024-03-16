@@ -1,6 +1,14 @@
 <template>
   <div :class="{ 'devMode' : VITE_DEVMODE == 1}">
     <Suspense><router-view class="p-2"></router-view></Suspense>
+    <!-- <Suspense>
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component class="p-2" :is="Component" />
+      </keep-alive>
+    </router-view>
+    </Suspense> -->
+    
     <Nav />
   </div>
 </template>

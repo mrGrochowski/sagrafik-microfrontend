@@ -56,18 +56,11 @@
 import { ref, onMounted, onActivated, watch } from "vue";
 import {
   sync,
-  Storage,
   getRows,
   getHeaders,
-  getPreparedCards,
-  getPreparedCardsWithLonLat,
-  getSortedMiniCards,
   getSmoothSortedMiniCards
 } from "../composables/fetchMeetings.js";
 import { checkPasswordCorrect } from "../composables/decryptContent.js";
-import { getLatLonFromCityName } from "../composables/geolocationMarks.js";
-import Scheduler from "./Scheduler/Index.vue";
-import isArray from "lodash/isArray";
 import saLogo from "../../public/logo.svg";
 import cheveron from "../../public/chevronDown.svg"
 import passwordDialog from "./passwordDialog.vue";
@@ -76,6 +69,8 @@ import { useGlobalState } from "../composables/globalState.js";
 import _ from "lodash";
 await sync();
 const { password, passwordGuard } = useGlobalState();
+console.log("🚀 ~ passwordGuard:", passwordGuard)
+console.log("🚀 ~ password:", password)
 
 const rows = ref([]);
 const headers = ref([]);
@@ -94,6 +89,13 @@ watch(password, async (e) => {
   }
 });
 
+if (password.value != "" && passwordGuard.value) {
+    rows.value = getRows();
+    headers.value = getHeaders();
+    cards.value = await getSmoothSortedMiniCards();
+    popUpList.value = await [...Array(cards.value.length)].map((e) => false);
+}
+  
 const togglePopUp = (index) => {
   clickedCard.value = cards.value[index];
 };
