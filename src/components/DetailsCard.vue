@@ -12,16 +12,22 @@
         <span>{{ label }}:</span> <strong> {{ elem }}</strong><br />
       </template>
     </template>
+    <div class="flex pt-4">
+      <span class="cursor-pointer" @click="share">
+        <ShareBtn class="inline-block h-[30px]" /> Udostępnij
+      </span>
+    </div>
+
   </Dialog>
 </template>
 
 <script setup>
 import { ref , watch } from "vue";
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 const route = useRoute()
-
+const router = useRouter()
 import Dialog from './Dialog.vue';
-
+import ShareBtn from '../../public/share.svg'
 import { checkPasswordCorrect } from "../composables/decryptContent.js";
 import { useGlobalState } from "../composables/globalState.js";
 import { sync, setCardsToStore } from "../composables/fetchMeetings.js";
@@ -40,6 +46,15 @@ watch(password, async (e) => {
 })
 if (password.value != "" && passwordGuard.value) {
   clickedCard.value = cards.value.find(e => e['Sygnatura czasowa'] == route.params.id);
+}
+
+
+const share = () => {
+  navigator.share({
+    text: 'Zapraszam na meeting',
+    url: window.location.href,
+    title:'Meeting SA'
+  })
 }
 
 </script>
