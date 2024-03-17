@@ -27,17 +27,23 @@ const decryptResponse = () =>
 
 const changeISODateToHoursInResponse = (decryptedResponse) => {
   const regex = /\d{4}\-\d{2}\-\d{2}T/
-  const responseWithTimestampsAsHHMM = decryptedResponse.map((row) =>
-    cloneDeep(row).map((col) => {
-      //get just hour format
-      const condition = regex.test(col)
-      if (condition) {
-        const res = col.match(/\d\d:\d\d/)['0']
-        return res
-      }
-      return col
-    })
-  )
+  const responseWithTimestampsAsHHMM = decryptedResponse.map((row) => {
+    return cloneDeep(row).map((col,index) => {
+      	//get just hour format
+      	const condition = regex.test(col)
+      	if (condition && index > 0) {
+        	const res = col.match(/\d\d:\d\d/)['0']
+        	return res
+      	}
+        if (index == 0) {
+          const res = ""+Math.floor(new Date(col.replace(/"/g, '')).getTime() / 1000)
+          console.log("🚀 ~ returncloneDeep ~ res:", res)
+          
+          return res
+        }
+      	return col
+    	})
+  })
 
   return responseWithTimestampsAsHHMM
 }

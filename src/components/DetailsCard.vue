@@ -7,6 +7,7 @@
       <template v-if="label == 'Nazwa Meetingu'">
         <h4 class="text-xl font-semibold mb-2">{{ elem }}</h4>
       </template>
+      <template v-else-if="label == 'Sygnatura czasowa'"></template>
       <template v-else>
         <span>{{ label }}:</span> <strong> {{ elem }}</strong><br />
       </template>
@@ -31,18 +32,13 @@ const clickedCard = ref(0);
 
 
 watch(password, async (e) => { 
-  console.log("🚀 ~ password:", password.value)
-  console.log("🚀 ~ passwordGuard:", passwordGuard.value)
   setCardsToStore();
   await checkPasswordCorrect();
-  //if (e != "" && passwordGuard.value) {
-    
-    console.log("🚀 ~ watch ~ cards.value:", cards.value)
+  if (e != "" && passwordGuard.value) {
   clickedCard.value = cards.value.find(e => e['Sygnatura czasowa'] == route.params.id);
-  //}
+  }
 })
 if (password.value != "" && passwordGuard.value) {
-  console.log("weszło");
   clickedCard.value = cards.value.find(e => e['Sygnatura czasowa'] == route.params.id);
 }
 
