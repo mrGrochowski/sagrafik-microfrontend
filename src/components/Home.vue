@@ -12,8 +12,7 @@
       <span class="text-xs">Jeżeli potrzebujesz edytować meeting skontaktuj się z nami na email
         <a href="mailto:sagrafik.online@gmail.com">sagrafik.online@gmail.com</a>. Możesz
         też dodać nowy meeting klikając w przycisk poniżej.</span>
-      <a class="rounded-full shadow-sm bg-emerald-300 text-slate-600 p-2 inline-block mt-3 mx-auto"
-        href="https://docs.google.com/forms/d/e/1FAIpQLSe9KC-zzcd89iinRnFIZoK7rjcRsFJjsFwFz3u6Wcad3rS2WQ/viewform">Dodaj
+      <a class="rounded-full shadow-sm bg-emerald-300 text-slate-600 p-2 inline-block mt-3 mx-auto" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSe9KC-zzcd89iinRnFIZoK7rjcRsFJjsFwFz3u6Wcad3rS2WQ/viewform">Dodaj
         meeting</a>
     </div>
 

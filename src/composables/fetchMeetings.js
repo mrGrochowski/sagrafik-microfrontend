@@ -37,7 +37,6 @@ const changeISODateToHoursInResponse = (decryptedResponse) => {
       	}
         if (index == 0) {
           const res = ""+Math.floor(new Date(col.replace(/"/g, '')).getTime() / 1000)
-          console.log("🚀 ~ returncloneDeep ~ res:", res)
           
           return res
         }
