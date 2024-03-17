@@ -6,6 +6,7 @@ export const useGlobalState = createGlobalState(
     const password = ref('')
     const passwordGuard = ref(false)
     const Storage = ref('')
-    return { password, passwordGuard , Storage }
+    const cards = ref('');
+    return { password, passwordGuard , Storage , cards }
   }
 )
