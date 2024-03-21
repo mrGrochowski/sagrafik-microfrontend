@@ -2,6 +2,7 @@ import dayjs from 'dayjs'
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import dayjsPL from 'dayjs/locale/pl';
 import { capitalize, sortBy } from 'lodash'
+import cloneDeep from 'lodash/cloneDeep.js'
 
 dayjs.locale(dayjsPL);
 dayjs.extend(customParseFormat);
@@ -97,7 +98,7 @@ export const sortByClosest = (collection) => {
     if (b.dateAndTime.isAfter(a.dateAndTime)) return -1
     return 0
   }) 
-  const sortCollectionWithoutDateAndTime = structuredClone(sortCollection).map(e => {
+  const sortCollectionWithoutDateAndTime = cloneDeep(sortCollection).map(e => {
     delete e.dateAndTime
     return e
   })
