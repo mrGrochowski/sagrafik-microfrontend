@@ -63,12 +63,12 @@ export const getHeaders = () => Storage.decryptedResponse[0]
 export const getPreparedCards = () => {
   const preparedList = []
   const rows = getRows().slice(1);
-  const headers = getHeaders().map(e=> e.replace(/"/g, '').replace(/\s$/,''))
+  const headers = getHeaders().map(e=> e.replace(/^"|"$/g, '').replace(/\\"/g,'"').replace(/\s$/,''))
 
   rows.forEach((row, index) => {
     const obj = {}
     row.forEach((cell, index) => {
-      obj[headers[index]] = cell && cell.replace(/"/g, '').replace(/\s$/,'')
+      obj[headers[index]] = cell && cell.replace(/^"|"$/g, '').replace(/\\"/g, '"').replace(/\s$/,'')
     })
     preparedList.push(obj)
   })
